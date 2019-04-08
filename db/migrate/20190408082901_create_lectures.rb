@@ -7,6 +7,7 @@ class CreateLectures < ActiveRecord::Migration[5.2]
       t.datetime :start_time
       t.datetime :end_time
       t.string :video_link
+      t.string :message
       t.boolean :confirmed
 
       t.timestamps
