@@ -1,3 +1,2 @@
-class Teacher < ApplicationRecord
-  belongs_to :user
+class Teacher < User
 end

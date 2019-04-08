@@ -52,7 +52,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1200" y="574" name="expertises">
+<table x="1249" y="575" name="expertises">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -63,7 +63,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1150" y="428" name="professionals_expertises">
+<table x="1224" y="415" name="professionals_expertises">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -79,7 +79,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="294" y="72" name="class_rooms">
+<table x="312" y="71" name="class_rooms">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -89,7 +89,7 @@
 <row name="description" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default></row>
-<row name="picture" null="1" autoincrement="0">
+<row name="picture_url" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default></row>
 <row name="teacher_id" null="1" autoincrement="0">
@@ -100,7 +100,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="527" y="502" name="lectures">
+<table x="779" y="461" name="lectures">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -115,14 +115,17 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="professionals" row="id" />
 </row>
-<row name="date" null="1" autoincrement="0">
+<row name="start_time" null="1" autoincrement="0">
 <datatype>DATE</datatype>
 <default>NULL</default></row>
-<row name="time" null="1" autoincrement="0">
-<datatype>TIME</datatype>
+<row name="end_time" null="1" autoincrement="0">
+<datatype>DATE</datatype>
 <default>NULL</default></row>
-<row name="video_link" null="1" autoincrement="0">
+<row name="video_url" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
+<default>NULL</default></row>
+<row name="confirmed" null="1" autoincrement="0">
+<datatype>BOOLEAN</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -144,7 +147,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="217" y="572" name="comments">
+<table x="405" y="479" name="comments">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -162,7 +165,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="749" y="23" name="users">
+<table x="742" y="18" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -178,17 +181,17 @@
 <row name="password" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default></row>
-<row name="profile_picture" null="1" autoincrement="0">
+<row name="profile_picture_url" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default></row>
-<row name="background_picture" null="1" autoincrement="0">
+<row name="background_picture_url" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="942" y="163" name="professionals">
+<table x="980" y="163" name="professionals">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -202,60 +205,31 @@
 <row name="title" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default></row>
-<row name="bio" null="1" autoincrement="0">
+<row name="description" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default></row>
-<row name="location" null="1" autoincrement="0">
+<row name="city" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default></row>
-<row name="linkedin" null="1" autoincrement="0">
+<row name="linkedin_url" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="567" y="169" name="teachers">
+<table x="558" y="188" name="teachers">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="user_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="users" row="id" />
-</row>
+<default>NULL</default></row>
 <row name="school" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default></row>
 <row name="title" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="751" y="466" name="requests">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="message" null="1" autoincrement="0">
-<datatype>TEXT</datatype>
-<default>NULL</default></row>
-<row name="date" null="1" autoincrement="0">
-<datatype>DATE</datatype>
-<default>NULL</default></row>
-<row name="time" null="1" autoincrement="0">
-<datatype>TIME</datatype>
-<default>NULL</default></row>
-<row name="teacher_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="teachers" row="id" />
-</row>
-<row name="professional_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="professionals" row="id" />
-</row>
-<row name="confirmed" null="1" autoincrement="0">
-<datatype>BOOLEAN</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>

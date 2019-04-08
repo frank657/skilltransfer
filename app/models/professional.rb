@@ -1,3 +1,2 @@
-class Professional < ApplicationRecord
-  belongs_to :user
+class Professional < User
 end
