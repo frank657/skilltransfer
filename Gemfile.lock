@@ -48,8 +48,8 @@ GEM
     autoprefixer-rails (9.5.1)
       execjs
     bcrypt (3.1.12)
-    bindex (0.6.0)
-    bootsnap (1.4.2)
+    bindex (0.7.0)
+    bootsnap (1.4.3)
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (11.0.1)
@@ -68,6 +68,8 @@ GEM
       railties (>= 3.2, < 6.1)
     erubi (1.8.0)
     execjs (2.7.0)
+    faker (1.9.3)
+      i18n (>= 0.7)
     ffi (1.10.0)
     font-awesome-sass (5.6.1)
       sassc (>= 1.11)
@@ -177,6 +179,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
+    ui_faces (0.1.4)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
@@ -201,6 +204,7 @@ DEPENDENCIES
   bootsnap
   devise
   dotenv-rails
+  faker
   font-awesome-sass (~> 5.6.1)
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
@@ -215,6 +219,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   uglifier
+  ui_faces
   web-console (>= 3.3.0)
   webpacker
 
