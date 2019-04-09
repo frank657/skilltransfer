@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_09_055009) do
+ActiveRecord::Schema.define(version: 2019_04_08_145208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,13 +50,15 @@ ActiveRecord::Schema.define(version: 2019_04_09_055009) do
   end
 
   create_table "professionals", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "company"
     t.string "title"
     t.string "description"
     t.string "city"
     t.string "linkedin_url"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_professionals_on_user_id"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -85,10 +87,12 @@ ActiveRecord::Schema.define(version: 2019_04_09_055009) do
   end
 
   create_table "teachers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "school"
     t.string "title"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_teachers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -103,13 +107,6 @@ ActiveRecord::Schema.define(version: 2019_04_09_055009) do
     t.string "last_name"
     t.string "profile_picture_url"
     t.string "background_picture_url"
-    t.string "type"
-    t.string "school"
-    t.string "company"
-    t.string "title"
-    t.string "description"
-    t.string "city"
-    t.string "linkedin_url"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -118,4 +115,6 @@ ActiveRecord::Schema.define(version: 2019_04_09_055009) do
   add_foreign_key "comments", "lectures"
   add_foreign_key "lectures", "professionals"
   add_foreign_key "lectures", "teachers"
+  add_foreign_key "professionals", "users"
+  add_foreign_key "teachers", "users"
 end
