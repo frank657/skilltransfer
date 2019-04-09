@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>hello</h1>
+  <div class="card-category p-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.glimpsecorp.com/wp-content/uploads/2018/04/iStock-821820418.jpg)">
+  </div>
+  <h1>Grant's Cocktail Collections</h1>
+  <p><%= link_to "Customize Your Drink", new_cocktail_path, class: "btn btn-ghost" %></p>
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-6 card p-4">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="https://cdn.liquor.com/wp-content/uploads/2011/01/diamond_blue-newest.jpg">
+        </div>
+        <p><%= link_to cocktail.name, cocktail_path(cocktail) %>
+          <%= link_to cocktail_path(cocktail), method: :delete, data: {confirm: "Delete?"} do  %>
+            <i class="far fa-eye-slash"></i>
+          <% end %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>
