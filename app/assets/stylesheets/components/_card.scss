@@ -1,0 +1,14 @@
+.card-classroom {
+  background-color: $dark-blue;
+  margin-bottom: 30px;
+  background-size: cover !important;
+  background-position: center;
+  height: 250px;
+  width: 80%;
+  padding: 15px 15px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2)
+}
