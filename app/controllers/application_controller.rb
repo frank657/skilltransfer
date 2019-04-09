@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   def after_sign_in_path_for(resource)
-    teachers_show_path(current_user.teachers.first)
+    user_path(current_user.id)
   end
 end
