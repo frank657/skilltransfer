@@ -65,6 +65,8 @@
   Find Professionals
 </div>
 
+
+<!-- dropdown -->
 <div class="container">
   <h3>Specify your search</h3>
   <div class=>
@@ -93,22 +95,19 @@ $(document).ready(function(){
 </script>
 
 
-  <div class="well">
-  <div id="datetimepicker1" class="input-append date">
-    <input data-format="dd/MM/yyyy hh:mm:ss" type="text"></input>
-    <span class="add-on">
-      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-      </i>
-    </span>
+<!-- date picker -->
+<div class="container">
+  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+    <%= simple_form_for :search, method: "get" do |f| %>
+      <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Set filter", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
-<script type="text/javascript">
-  $(function() {
-    $('#datetimepicker1').datetimepicker({
-      language: 'pt-BR'
-    });
-  });
-</script>
+
+
+
 
 </div>
 
