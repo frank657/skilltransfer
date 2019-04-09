@@ -100,7 +100,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="779" y="461" name="lectures">
+<table x="779" y="462" name="lectures">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -126,6 +126,9 @@
 <default>NULL</default></row>
 <row name="confirmed" null="1" autoincrement="0">
 <datatype>BOOLEAN</datatype>
+<default>NULL</default></row>
+<row name="message" null="1" autoincrement="0">
+<datatype>TEXT</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -195,10 +198,6 @@
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="user_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="users" row="id" />
-</row>
 <row name="company" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default></row>
@@ -220,9 +219,6 @@
 </table>
 <table x="558" y="188" name="teachers">
 <row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="user_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="school" null="1" autoincrement="0">
