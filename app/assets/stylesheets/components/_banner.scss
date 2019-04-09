@@ -1,0 +1,46 @@
+// .banner-profile {
+//   background-color: #7098FF;
+//   margin-bottom: 30px;
+//   font-weight: 800;
+//   background-size: cover !important;
+//   background-position: center;
+//   // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+//   height: 350px;
+//   width: 100%;
+//   padding: 15px 15px;
+//   display: flex;
+//   align-items: center;
+// }
+
+
+.banner-short {
+  margin-bottom: 30px;
+  font-weight: 800;
+  background-size: cover !important;
+  background-position: center;
+  // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  height: 350px;
+  width: 100%;
+  padding: 15px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+
+}
+
+
+.banner-profile {
+  background-color: $dark-blue;
+  margin-bottom: 30px;
+  background-size: cover !important;
+  background-position: center;
+  height: 350px;
+  width: 100%;
+  padding: 15px 15px;
+  display: flex;
+  align-items: center;
+}
+
