@@ -1,0 +1,6 @@
+<h1>Professionals</h1>
+<p><% @professionals.each do |pro| %>
+  <p><%= pro.user.email %></p>
+  <p><%= pro.company %></p>
+  <p><%= pro.title %></p>
+<% end %></p>
