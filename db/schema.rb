@@ -40,28 +40,23 @@ ActiveRecord::Schema.define(version: 2019_04_10_075901) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.string "video_link"
-    t.string "message"
     t.boolean "confirmed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
-=======
+    t.string "message"
     t.bigint "class_room_id"
     t.index ["class_room_id"], name: "index_lectures_on_class_room_id"
->>>>>>> origin
     t.index ["professional_id"], name: "index_lectures_on_professional_id"
   end
 
   create_table "professionals", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "company"
     t.string "title"
     t.string "description"
     t.string "city"
     t.string "linkedin_url"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_professionals_on_user_id"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -90,12 +85,10 @@ ActiveRecord::Schema.define(version: 2019_04_10_075901) do
   end
 
   create_table "teachers", force: :cascade do |t|
-    t.string "school"
-    t.string "title"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_teachers_on_user_id"
+    t.string "school"
+    t.string "title"
   end
 
   create_table "users", force: :cascade do |t|
@@ -118,10 +111,4 @@ ActiveRecord::Schema.define(version: 2019_04_10_075901) do
   add_foreign_key "comments", "lectures"
   add_foreign_key "lectures", "class_rooms"
   add_foreign_key "lectures", "professionals"
-<<<<<<< HEAD
-  add_foreign_key "lectures", "teachers"
-=======
->>>>>>> origin
-  add_foreign_key "professionals", "users"
-  add_foreign_key "teachers", "users"
 end
