@@ -1,6 +1,9 @@
 <h1>Professionals</h1>
 <p><% @professionals.each do |pro| %>
-  <p><%= pro.user.email %></p>
-  <p><%= pro.company %></p>
-  <p><%= pro.title %></p>
+  <p><%= pro.user.first_name %> <%= pro.user.last_name %></p>
+  <p>Company: <%= pro.company %></p>
+  <p>Title: <%= pro.title %></p>
+  <p>Expertise: <%= pro.expertise_list %></p>
+  <p><%= link_to 'Request', new_professional_lecture_path(pro) %></p>
+  <p>--------------------------------------------------</p>
 <% end %></p>

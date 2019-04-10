@@ -1,2 +1,132 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- Teacher profile -->
+<div class="banner-profile">
+  <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
+  <div class="banner-content">
+      <h3>Sergio</h3>
+      <h4>Maths Teacher</h4>
+      <p>Montville Highschool</p>
+  </div>
+</div>
+
+
+
+<div class="container">
+
+  <ul class="nav nav-tabs mb-3">
+    <li class="li-tags" class="active"><a data-toggle="tab" href="#classrooms">Classrooms</a></li>
+    <li class="li-tags"><a data-toggle="tab" href="#lectures">Lectures</a></li>
+    <li class="li-tags"><a data-toggle="tab" href="#professionals">Professionals</a></li>
+  </ul>
+
+  <div class="tab-content">
+
+    <div id="classrooms" class="tab-pane fade in active">
+      <h5>You don’t have any class rooms yet. Create your first one.</h5>
+      <a href="#" class="btn btn-primary" role="button">Create classroom</a>
+    </div>
+
+
+    <div id="lectures" class="tab-pane fade">
+      <h3>Your upcoming lectures</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+
+    <div id="professionals" class="tab-pane fade">
+      <h5>You don’t have any class rooms yet. Create your first one.</h5>
+      <a href="#" class="btn btn-primary mb" role="button">Find professionals</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+<div class="card-classroom">
+  <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
+  <div class="card-classroom-content">
+      <h3>Maths class</h3>
+      <h4>10 B</h4>
+  </div>
+  <div class="card-classroom-content">
+      <h4>Next Lecture</h4>
+      <p>Date&Time:</p>
+      <p>with:</p>
+  </div>
+  <a href="#" class="btn btn-primary ml-2" role="button">Schedule class</a>
+</div>
+</div>
+
+
+
+
+
+
+<!-- Find professionals -->
+<div class="banner-short" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1528901166007-3784c7dd3653?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
+  Find Professionals
+</div>
+
+
+<!-- dropdown -->
+<div class="container">
+  <h3>Specify your search</h3>
+  <div class=>
+  <div class="filter-list">
+    <div class="dropdown">
+     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose Category
+      <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+       <input class="form-control" id="myInput" type="text" placeholder="Pick from list">
+        <li><a href="#">Game Design</a></li>
+        <li><a href="#">Backend Development</a></li>
+        <li><a href="#">Frontend Development</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $(".dropdown-menu li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+
+<!-- date picker -->
+<div class="container">
+  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+    <%= simple_form_for :search, method: "get" do |f| %>
+      <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Set filter", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+</div>
+
+<div>Display professionals cards</div>
+
+
+
+<!-- Create profile form -->
+
+<form>
+   <div class="form-group">
+    <label for="inputdefault">Default input</label>
+    <input class="form-control" id="inputdefault" type="text">
+  </div>
+  <div class="form-group">
+    <label for="inputlg">Large input</label>
+    <input class="form-control input-lg" id="inputlg" type="text">
+  </div>
+</form>
+
+
+
