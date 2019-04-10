@@ -1,5 +1,5 @@
 class ProfessionalsController < ApplicationController
-  before_action :set_professional only: [:show, :edit, :update]
+  before_action :set_professional, only: [:show, :edit, :update]
 
   def index
     @professionals = Professional.all
