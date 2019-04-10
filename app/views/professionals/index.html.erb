@@ -12,9 +12,9 @@
           <span class="caret"></span></button>
         <ul class="dropdown-menu">
           <input class="form-control" id="myInput" type="text" placeholder="Pick from list">
-          <li><a href="#">Game Design</a></li>
-          <li><a href="#">Backend Development</a></li>
-          <li><a href="#">Frontend Development</a></li>
+          <li data-tags='game design'><a href="#">Game Design</a></li>
+          <li data-tags='backend development'><a href="#">Backend Development</a></li>
+          <li data-tags='frontend development'><a href="#">Frontend Development</a></li>
         </ul>
       </div>
     </div>
@@ -29,74 +29,51 @@
         });
       });
     </script>
-    <!-- date picker -->
-    <div class="container">
-      <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-        <%= simple_form_for :search, method: "get" do |f| %>
-          <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-          <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-          <%= f.button :submit, "Set filter", class: "btn btn-primary" %>
-        <% end %>
+    <!-- Display professionals -->
+    <% @professionals.each do |pro| %>
+      <div class="container">
+        <div class="card-professional">
+          <div class="card-professional-content">
+            <h4><%= pro.user.first_name %> <%= pro.user.last_name %></h4>
+            <p>Company: <%= pro.company %></p>
+            <p>Title: <%= pro.title %></p>
+            <p>Expertise: <% pro.expertise_list.each do |e| %><%= e %>
+              <% end %></p>
+            <p>City: <%= pro.city %></p>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Send request</button>
+          </div>
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Send a request</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div>
+                  <!-- date picker -->
+                  <div class="container">
+                    <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+                      <%= simple_form_for :search, method: "get" do |f| %>
+                        <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+                        <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+                        <%= f.input :text %>
+                        <%= f.button :submit, "Set filter", class: "btn btn-primary" %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal" >Submit</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+<% end %>
 </div>
-<!-- Display professionals -->
-<div class="container">
-  <h2>Pick a professional</h2>
-  <p><% @professionals.each do |pro| %>
-      <p><%= pro.user.first_name %> <%= pro.user.last_name %></p>
-      <p>Company: <%= pro.company %></p>
-      <p>Title: <%= pro.title %></p>
-      <p>Expertise: <%= pro.expertise_list %></p>
-      <p><%= link_to 'Request', new_teacher_lecture_path(:teacher_id) %></p>
-      <p>--------------------------------------------------</p>
-    <% end %></p>
-</div>
-<div class="container">
-  <div class="card-professional">
-    <% @professionals.each do |pro| %>
-      <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
-      <div class="card-classroom-content">
-        <p><%= pro.user.first_name %> <%= pro.user.last_name %></p>
-        <p>Company: <%= pro.company %></p>
-        <p>Title: <%= pro.title %></p>
-        <p>Expertise: <%= pro.expertise_list %></p>
-        <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create a new classroom</button>
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <h4 class="modal-title">Create classroom</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
-              <div class="modal-body flex-column">
-                <%= simple_form_for @user do |f| %>
-                  <div>
-                    <%= f.label :name %>
-                    <%= f.input_field :first_name %>
-                  </div>
-                  <div>
-                    <%= f.label :description %>
-                    <%= f.input_field :first_name %>
-                  </div>
-                  <div>
-                    <%= f.label :picture %>
-                    <%= f.input_field :first_name %>
-                  </div>
-                <% end %>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
-              </div>
-            </div>
-          </div>
-          <p><%= link_to 'Request', new_teacher_lecture_path(:teacher_id) %></p>
-        </div>
-        <a href="#" class="btn btn-primary ml-2" role="button">Schedule class</a>
-      </div>
-    <% end %>
-  </div>
