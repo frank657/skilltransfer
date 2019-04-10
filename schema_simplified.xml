@@ -100,15 +100,12 @@
 <part>id</part>
 </key>
 </table>
-<table x="751" y="451" name="lectures">
+<table x="783" y="447" name="lectures">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="name" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
-<default>NULL</default></row>
-<row name="teacher_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="professional_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
