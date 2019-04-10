@@ -10,12 +10,13 @@ class LecturesController < ApplicationController
 
   def new
     @lecture = Lecture.new
+    @professional = Professional.find(params[:professional_id])
   end
 
   def create
     @lecture = Lecture.new(lecture_params)
-    @lecture.teacher = current_user.teachers.first
     @lecture.professional = Professional.find(params[:professional_id])
+    @lecture.teacher = current_user.teachers.first
     if @lecture.save
       redirect_to user_path(current_user)
     else
