@@ -1,7 +1,13 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "logo.png" %>
-    <% end %>
+  <% if user_signed_in? %>
+    <%= link_to user_path(current_user), class: "navbar-brand" do %>
+      <%= image_tag "logo.png" %>
+      <% end %>
+  <% else %>
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "logo.png" %>
+      <% end %>
+  <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -33,3 +39,4 @@
     </ul>
   </div>
 </div>
+
