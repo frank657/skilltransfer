@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_08_145208) do
+ActiveRecord::Schema.define(version: 2019_04_10_075901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 2019_04_08_145208) do
 
   create_table "lectures", force: :cascade do |t|
     t.string "name"
-    t.bigint "teacher_id"
     t.bigint "professional_id"
     t.datetime "start_time"
     t.datetime "end_time"
@@ -45,8 +44,12 @@ ActiveRecord::Schema.define(version: 2019_04_08_145208) do
     t.boolean "confirmed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
+=======
+    t.bigint "class_room_id"
+    t.index ["class_room_id"], name: "index_lectures_on_class_room_id"
+>>>>>>> origin
     t.index ["professional_id"], name: "index_lectures_on_professional_id"
-    t.index ["teacher_id"], name: "index_lectures_on_teacher_id"
   end
 
   create_table "professionals", force: :cascade do |t|
@@ -113,8 +116,12 @@ ActiveRecord::Schema.define(version: 2019_04_08_145208) do
 
   add_foreign_key "class_rooms", "teachers"
   add_foreign_key "comments", "lectures"
+  add_foreign_key "lectures", "class_rooms"
   add_foreign_key "lectures", "professionals"
+<<<<<<< HEAD
   add_foreign_key "lectures", "teachers"
+=======
+>>>>>>> origin
   add_foreign_key "professionals", "users"
   add_foreign_key "teachers", "users"
 end

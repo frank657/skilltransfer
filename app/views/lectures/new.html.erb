@@ -1,5 +1,8 @@
-<h1>Lectures#new</h1>
-<p>Find me in app/views/lectures/new.html.erb</p>
-<%= simple_form_for(@lecture) do |f| %>
-<%= f.input :message %>
+<h1>Request a lecture</h1>
+<%= simple_form_for [@professional, @lecture] do |f| %>
+  <%= f.input :start_time %>
+  <%= f.input :end_time %>
+  <%= f.input :message %>
+  <%= f.association :class_room, collection: current_user.class_rooms %>
+  <%= f.submit 'request' %>
 <% end %>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- Find professionals header -->
 <div class="banner-short" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1528901166007-3784c7dd3653?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
   <h2>Find Professionals</h2>
@@ -77,3 +78,14 @@
   </div>
 <% end %>
 </div>
+=======
+<h1>Professionals</h1>
+<p><% @professionals.each do |pro| %>
+  <p><%= pro.user.first_name %> <%= pro.user.last_name %></p>
+  <p>Company: <%= pro.company %></p>
+  <p>Title: <%= pro.title %></p>
+  <p>Expertise: <%= pro.expertise_list %></p>
+  <p><%= link_to 'Request', new_professional_lecture_path(pro) %></p>
+  <p>--------------------------------------------------</p>
+<% end %></p>
+>>>>>>> origin
