@@ -51,7 +51,7 @@ def create_male_user
     first_name: f_name,
     last_name: l_name,
     profile_picture_url: UiFaces.man,
-    background_picture_url: "https://source.unsplash.com/1600x900/?city",
+    background_picture_url: "https://source.unsplash.com/1600x900/?#{['city','building','nature','people','office','professional','business'].sample}",
     email: "#{f_name}.#{l_name}@#{Faker::Internet.domain_name}",
     password: 'password'
     )
@@ -64,7 +64,7 @@ def create_female_user
     first_name: f_name,
     last_name: l_name,
     profile_picture_url: UiFaces.woman,
-    background_picture_url: "https://source.unsplash.com/1600x900/?city",
+    background_picture_url: "https://source.unsplash.com/1200x675/?#{['city','building','nature','people','office','professional','business'].sample}",
     email: "#{f_name}.#{l_name}@#{Faker::Internet.domain_name}",
     password: 'password'
     )
@@ -110,15 +110,29 @@ end
 end
 
 20.times do
+  c = ClassRoom.create!(
+    name: "#{Faker::Types.character.upcase} - #{rand(1..5)}",
+    description: Faker::Quote.matz,
+    picture_url: "https://source.unsplash.com/1200x675/?#{['school','study','students','classroom','education'].sample}",
+    teacher: Teacher.all.sample
+  )
+  rand(1..5).times do
+    c.interest_list.add(Faker::Job.field)
+  end
+  c.save
+end
+
+20.times do
   time = Time.new(2019, rand(5..7), rand(1..30), rand(9..17))
   Lecture.create!(
     name: Faker::Company.catch_phrase,
-    teacher: Teacher.all.sample,
+    # teacher: Teacher.all.sample,
+    class_room: ClassRoom.all.sample,
     professional: Professional.all.sample,
     confirmed: [true, false].sample,
     start_time: time,
     end_time: time + 3600,
-    message: Faker::Quote.matz
+    message: Faker::Quote.matz,
   )
 end
 
@@ -127,15 +141,6 @@ end
     name_student: Faker::Name.first_name,
     content: sample_question,
     lecture: Lecture.all.sample
-  )
-end
-
-20.times do
-  ClassRoom.create!(
-    name: "#{Faker::Types.character.upcase} - #{rand(1..5)}",
-    description: Faker::Quote.matz,
-    picture_url: "https://source.unsplash.com/1600x900/?school",
-    teacher: Teacher.all.sample
   )
 end
 
