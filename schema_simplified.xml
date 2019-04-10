@@ -79,7 +79,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="312" y="71" name="class_rooms">
+<table x="330" y="259" name="class_rooms">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -100,17 +100,13 @@
 <part>id</part>
 </key>
 </table>
-<table x="779" y="462" name="lectures">
+<table x="783" y="447" name="lectures">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="name" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default></row>
-<row name="teacher_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="teachers" row="id" />
-</row>
 <row name="professional_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="professionals" row="id" />
@@ -130,6 +126,10 @@
 <row name="message" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
 <default>NULL</default></row>
+<row name="class_room_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="class_rooms" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -150,7 +150,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="405" y="479" name="comments">
+<table x="173" y="629" name="comments">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -221,7 +221,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="558" y="188" name="teachers">
+<table x="557" y="148" name="teachers">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
