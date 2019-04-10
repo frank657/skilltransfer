@@ -21,25 +21,34 @@
 
     <!-- TAB 1 CLASSROOMS -->
     <div id="classrooms" class="tab-pane fade in active">
-      <h5>You don’t have any class rooms yet. Create your first one.</h5>
+      <!-- <h5>You don’t have any class rooms yet. Create your first one.</h5> -->
       <div class="container">
 
         <!-- CLASS CARD -->
         <% @user.class_rooms.each do |cr| %>
-        <div class="card-classroom">
-          <img src=<%= cr.picture_url %> class="avatar-large"/>
-          <div class="card-classroom-content">
-            <h3>Class</h3>
-            <h4><%= cr.name %></h4>
-          </div>
-          <div class="card-classroom-content">
-            <h4>Next Lecture</h4>
-            <p>Date&Time:</p>
-            <p>with:</p>
-          </div>
-          <a><%= link_to 'Search professionals', professionals_path, :class=>"btn btn-primary ml-2" %></a>
+          <div class="card-classroom">
+            <img src=<%= cr.picture_url %> class="avatar-large"/>
+            <div class="card-classroom-content">
+              <h3>Class</h3>
+              <h4><%= cr.name %></h4>
 
-        </div>
+              <p><% cr.interest_list.each do |i| %>
+                <span class="btn btn-primary"><%= i %></span>
+              <% end %></p>
+            </div>
+            <div class="card-classroom-content">
+
+              <% if cr.lectures.empty? %>
+                <h4>No lecture scheduled</h4>
+              <% else %>
+                <h4>Next Lecture</h4>
+                <p><%= cr.lectures.first.start_time.strftime('%b %e, %l:%M %p') %></p>
+                <p>with: <%= cr.lectures.first.professional.company %></p>
+              <% end %>
+            </div>
+            <a><%= link_to 'Search professionals', professionals_path, :class=>"btn btn-primary ml-2" %></a>
+
+          </div>
         <% end %>
 
         <!-- Trigger the modal with a button -->
@@ -78,6 +87,31 @@
       <p>You don't have any upcoming lectures yet.</p>
     </div>
 
+      <div class="container">
+
+      <!-- LECTURE CARD -->
+      <% @user.class_rooms.each do |cr| %>
+        <% cr.lectures.each do |l| %>
+          <div class="card-classroom">
+            <!-- <img src=<%= cr.picture_url %> class="avatar-large"/> -->
+            <div class="card-classroom-content">
+              <h3>Lecture</h3>
+              <h4><%= l.name %></h4>
+              <h4><%= l.professional.company %></h4>
+              <h4><%= l.professional.user.first_name %> <%= l.professional.user.last_name %></h4>
+              <h4><%= l.professional.title %></h4>
+            </div>
+
+            <div class="card-classroom-content">
+              <h4>Time</h4>
+              <p><%= l.start_time.strftime('%b %e, %l:%M %p') %></p>
+            </div>
+            <a><%= link_to 'View lecture', lecture_path(l), :class=>"btn btn-primary ml-2" %></a>
+
+          </div>
+        <% end %>
+      <% end %>
+    </div>
 
   </div>
 </div>
