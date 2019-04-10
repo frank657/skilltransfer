@@ -5,5 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :teachers
   has_many :professionals
+  has_many :class_rooms, through: :teachers
+  has_many :lectures, through: :teachers
+  has_many :lectures, through: :professionals
 end
 
