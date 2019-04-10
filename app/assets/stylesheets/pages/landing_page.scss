@@ -1,6 +1,8 @@
-// Import page-specific CSS files here.
 @import "home";
 
+.justify-content-end {
+  margin-top: 10px;
+}
 
 .landingpage {
   position: absolute;
@@ -162,7 +164,7 @@ ul.inline-list {
 
 .logo img{
   max-height: 50px;
-  margin-top: 10px;
+  position: absolute;
   }
 
 .logo2 img{
