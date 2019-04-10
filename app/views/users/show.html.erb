@@ -64,11 +64,7 @@
               </div>
               <div class="modal-body">
                   <%= simple_form_for @user do |f| %>
-                  <%= f.label :name %>
-                  <%= f.input_field :first_name %>
-                  <%= f.label :description %>
-                  <%= f.input_field :first_name %>
-                  Photo
+                    <%= f.input :first_name %>
                   <% end %>
               </div>
               <div class="modal-footer">
@@ -77,26 +73,6 @@
             </div>
           </div>
         </div>
-<<<<<<< HEAD
-        <div class="modal-body flex-column">
-
-            <%= simple_form_for @user do |f| %>
-          <div>
-            <%= f.label :name %>
-            <%= f.input_field :first_name %>
-          </div>
-          <div>
-            <%= f.label :description %>
-            <%= f.input_field :first_name %>
-          </div>
-          <div>
-            <%= f.label :picture %>
-            <%= f.input_field :first_name %>
-          </div>
-            <% end %>
-=======
->>>>>>> origin
-
       </div>
     </div>
 
