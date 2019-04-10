@@ -1,7 +1,7 @@
-ClassRoom.delete_all if Rails.env.development?
 Comment.delete_all if Rails.env.development?
 Lecture.delete_all if Rails.env.development?
 Professional.delete_all if Rails.env.development?
+ClassRoom.delete_all if Rails.env.development?
 Teacher.delete_all if Rails.env.development?
 User.delete_all if Rails.env.development?
 
@@ -111,7 +111,7 @@ end
 
 20.times do
   c = ClassRoom.create!(
-    name: "#{Faker::Types.character.upcase} - #{rand(1..5)}",
+    name: "#{['Math', 'Science','Foreign Languages', 'Social Studies', 'Business', 'Information Technology', 'English'].sample} Class - #{Faker::Types.character.upcase} #{rand(1..5)}",
     description: Faker::Quote.matz,
     picture_url: "https://source.unsplash.com/1200x675/?#{['school','study','students','classroom','education'].sample}",
     teacher: Teacher.all.sample
