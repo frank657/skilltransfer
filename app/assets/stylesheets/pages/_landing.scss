@@ -17,9 +17,15 @@ justify-content: right;
 }
 
 .banner-gray {
-  background-color: #C4C4C4;
+  background-color: #F4F4F4;
   height: 350px;
 }
+
+.banner-blue {
+  background-color: #1B2AAA;
+  height: 350px;
+}
+
 
 .justify-content-end {
   margin-top: 10px;
@@ -28,7 +34,7 @@ justify-content: right;
 .landingpage {
   position: relative;
   height: 500px;
-  background: #C4C4C4;
+  background: #1B2AAA;
 }
 
 .container {
@@ -88,23 +94,23 @@ justify-content: right;
   position: relative;
   padding: 10px 20px;
   border-radius: 4px;
-  background: #7098FF;
+  background: #1B2AAA;
   transition: background 0.3s ease;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .btn-flat-page {
-  color: white;
+  color: #1B2AAA;
   padding: 10px 20px;
   border-radius: 4px;
-  background: #7098FF;
+  background: #F4F4F4;
   transition: background 0.3s ease;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   margin-left: 200px;
 }
 
 .btn-flat:hover {
-  background: #7098FF;
+  background: white;
   color: white;
 }
 
