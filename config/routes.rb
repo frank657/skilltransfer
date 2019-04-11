@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show]
-  # get '/professional_dashboard', to: 'users#professional_dashboard', as: 'p_dashboard'
+  get '/professional_dashboard', to: 'users#professional_dashboard', as: 'p_dashboard'
   root to: 'pages#landing'
   get 'teacher_info', to: 'pages#teacher_info', as: :teacher_info
   get 'professional_info', to: 'pages#professional_info', as: :professional_info

@@ -9,4 +9,3 @@ class User < ApplicationRecord
   has_many :lectures, through: :teachers
   has_many :lectures, through: :professionals
 end
-
