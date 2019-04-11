@@ -111,4 +111,6 @@ ActiveRecord::Schema.define(version: 2019_04_10_075901) do
   add_foreign_key "comments", "lectures"
   add_foreign_key "lectures", "class_rooms"
   add_foreign_key "lectures", "professionals"
+  add_foreign_key "professionals", "users"
+  add_foreign_key "teachers", "users"
 end
