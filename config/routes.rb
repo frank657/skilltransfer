@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :lectures, only: [:index] do
       resources :comments, only: [:new, :create]
     end
-    resources :class_rooms
+    resources :class_rooms, only: [:new, :create]
   end
 
   resources :lectures, only: [:show]
