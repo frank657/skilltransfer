@@ -1,0 +1,70 @@
+<div class="landingpage">
+  <div class="banner-gray" style="background-image: linear-gradient(rgba(196,196,196,1),rgba(196,196,196,1))">
+    <div class="container">
+      <div class="logo">
+        <%= link_to root_path do %>
+          <%= image_tag "skilltransfer.png", alt: "Skilltransfer_logo"%>
+        <% end %>
+      </div>
+      <ul class="nav justify-content-end">
+        <div class="nav-link enable" tabindex="-1" aria-disabled="true">
+          <%= link_to "For Teachers", teacher_info_path %>
+        </div>
+      </li>
+      <li>
+        <%= link_to "For Professionals", professional_info_path, class: "nav-link enable" %>
+      </li>
+      <li class="btn-ghost">
+        <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
+      </li>
+    </ul>
+    <div class="text-left">
+      <h1 class="word-white">Share your skills for a better good</h1>
+    </div>
+    <a class="btn-flat-page" href="#">Sign up as professional</a>
+  </div>
+</div>
+<div class="card-product-page">
+  <%= image_tag"professionals.png", alt: "professional"%>
+  <div class="card-product-page-infos">
+    <h2>Share your experiences, change others' lifes</h2>
+    <p>Obtain personal satisfaction from making a difference to the career development of the others. Enhance your people skills such as leadership, interpersonal skills and communication.</p>
+  </div>
+</div>
+<div class="banner-gray" style="background-image: linear-gradient(rgba(196,196,196,1),rgba(196,196,196,1))">
+  <div class="container">
+    <ul class=inline-list>
+      <li class= "img-companies">
+        <%= image_tag "ge.png", alt: "Company_logo" %>
+      </li>
+      <li class= "img-companies">
+        <%= image_tag "apple.png", alt: "Company_logo"%>
+      </li>
+      <li class= "img-companies">
+        <%= image_tag "lewagon.png", alt: "Company_logo"%>
+      </li>
+      <li class= "img-companies">
+        <%= image_tag "benz.png", alt: "Company_logo"%>
+      </li>
+      <li class= "img-companies-boeing">
+        <%= image_tag "boeing.png", alt: "Company_logo"%>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="card-product-page">
+  <div class="card-product-page-infos">
+    <ul class="nav justify-content-end">
+      <li class="logo2">
+        <%= image_tag "skilltransfer.png", alt: "Skilltransfer_logo"%>
+      </li>
+      <li>
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">General</a>
+      </li>
+      <li>
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Browse more</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
