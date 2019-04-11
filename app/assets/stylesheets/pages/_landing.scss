@@ -66,12 +66,29 @@ justify-content: right;
 .word-white {
   display: flex;
   margin: 40px 200px 38px 200px;
+  // padding: 140px;
   position: relative;
   color: #FFFFFF;
   font-family: 'Open Sans', sans-serif;
   text-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   line-height: 60px;
   font-size:40px;
+  justify-content: center;
+
+}
+
+.banner-blue h2 {
+  display: flex;
+  // margin: 40px 200px 38px 200px;
+  padding: 140px;
+  position: relative;
+  color: #FFFFFF;
+  font-family: 'Open Sans', sans-serif;
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  line-height: 60px;
+  font-size:40px;
+  justify-content: center;
+
 }
 
 .card-category {
@@ -110,8 +127,7 @@ justify-content: right;
 }
 
 .btn-flat:hover {
-  background: white;
-  color: white;
+  color: #7098FF;
 }
 
 .banner-white {
