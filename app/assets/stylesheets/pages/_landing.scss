@@ -1,15 +1,21 @@
 @import "home";
 
+.text {
+justify-content: right;
+}
+
+.banner-gray {
+  background-color: #C4C4C4;
+  height: 380px;
+}
+
 .justify-content-end {
   margin-top: 10px;
 }
 
 .landingpage {
-  position: absolute;
-  width: 1440px;
-  height: 561px;
-  left: 0px;
-  top: 0px;
+  position: relative;
+  height: 500px;
   background: #C4C4C4;
 }
 
@@ -41,12 +47,13 @@
 
 .word-white {
   display: flex;
-  margin: 40px 100px 38px 100px;
+  margin: 40px 200px 38px 200px;
   position: relative;
   color: #FFFFFF;
   font-family: 'Open Sans', sans-serif;
   text-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   line-height: 60px;
+  font-size:40px;
 }
 
 .card-category {
@@ -81,7 +88,7 @@
   background: #7098FF;
   transition: background 0.3s ease;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  margin-left: 102px;
+  margin-left: 200px;
 }
 
 .btn-flat:hover {

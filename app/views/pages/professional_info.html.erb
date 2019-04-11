@@ -1,11 +1,6 @@
 <div class="landingpage">
-  <div class="banner-gray" style="background-image: linear-gradient(rgba(196,196,196,1),rgba(196,196,196,1))">
+  <div class="banner-gray">
     <div class="container">
-      <div class="logo">
-        <%= link_to root_path do %>
-          <%= image_tag "skilltransfer.png", alt: "Skilltransfer_logo"%>
-        <% end %>
-      </div>
       <ul class="nav justify-content-end">
         <div class="nav-link enable" tabindex="-1" aria-disabled="true">
           <%= link_to "For Teachers", teacher_info_path %>
@@ -14,12 +9,16 @@
       <li>
         <%= link_to "For Professionals", professional_info_path, class: "nav-link enable" %>
       </li>
-      <li class="btn-ghost">
-        <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
-      </li>
+      <!-- <li>
+        <% if user_signed_in? %>
+          <%= link_to "My Profile", user_path(current_user), class: "nav-link enable" %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path, class: "btn-ghost" %>
+        <% end %>
+      </li> -->
     </ul>
     <div class="text-left">
-      <h1 class="word-white">Share your skills for a better good</h1>
+      <h1 class="word-white">Share your knowledges and skills for a better good</h1>
     </div>
     <a class="btn-flat-page" href="#">Sign up as professional</a>
   </div>
