@@ -3,12 +3,9 @@ class ProfessionalsController < ApplicationController
 
   def index
     @professionals = Professional.all
-    @search = params["search"]
-    if @search.present?
-      @name = @search["name"]
-      @professionals = Professional.where(name: @name)
-      @professionals = Professional.where("name ILIKE ?", @name)
-      @professionals = Professional.where("name ILIKE ?", "%#{@name}%")
+    @tag = params["query"]
+    if @tag.present?
+      @professionals = Professional.tagged_with(@tag)
     end
   end
 
