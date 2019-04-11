@@ -5,5 +5,4 @@ class UsersController < ApplicationController
     @professional = current_user.professionals.first
     @class_room = ClassRoom.new(teacher: @teacher)
   end
-
 end
