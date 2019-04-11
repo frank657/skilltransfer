@@ -185,7 +185,7 @@
 
 ul.inline-list {
   position: absolute;
-  margin: 150px;
+  margin: 80px;
 }
 
 .inline-list li {
@@ -210,7 +210,17 @@ ul.inline-list {
   margin: 20px;
 }
 
-.img-companies-boeing img{
+.img-companies-big img {
+  height: 40px;
+  margin: 20px;
+}
+
+.img-companies-long img {
+  height: 40px;
+  margin: 20px;
+}
+
+.img-companies-medium img{
   height: 60px;
   margin: 20px;
 }
