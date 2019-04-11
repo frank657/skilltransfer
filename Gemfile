@@ -11,6 +11,7 @@ gem 'redis'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'faker'
 gem 'ui_faces'
+gem 'twilio-ruby', '~> 5.22.0'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
