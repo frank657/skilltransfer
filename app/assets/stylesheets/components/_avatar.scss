@@ -5,6 +5,10 @@
 .avatar-large {
   width: 180px;
   border-radius: 50%;
+  border: solid 4px white;
+  height: 180px;
+  background-size:cover;
+  background-position:center center;
 }
 .avatar-bordered {
   width: 40px;
