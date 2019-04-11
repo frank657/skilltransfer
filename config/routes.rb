@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show]
-  root to: 'pages#home'
+  root to: 'pages#landing'
+  get 'teacher_info', to: 'pages#teacher_info', as: :teacher_info
+  get 'professional_info', to: 'pages#professional_info', as: :professional_info
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :professionals, except: :destroy do # only: [:index, :show, :new, :create, :edit, :update]
     resources :lectures, only: [:new, :create, :index, :show, :edit, :update] do
