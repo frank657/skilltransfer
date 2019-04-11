@@ -1,4 +1,3 @@
-// Import page-specific CSS files here.
 @import "home";
 
 .justify-content-end {
@@ -93,7 +92,8 @@
 .banner-white {
   background-size: cover;
   background-position: center;
-  background: white;
+  background: #F4F4F4;
+  margin:50px;
 }
 
 .card-product {
@@ -183,12 +183,21 @@
   margin-left: 30px;
 }
 
+ul.inline-list-teacher {
+  position: absolute;
+  margin: 140px;
+}
+
 ul.inline-list {
   position: absolute;
-  margin: 150px;
+  margin: 80px;
 }
 
 .inline-list li {
+  display: inline-block;
+}
+
+.inline-list-teacher li {
   display: inline-block;
 }
 
@@ -210,7 +219,18 @@ ul.inline-list {
   margin: 20px;
 }
 
-.img-companies-boeing img{
+.img-companies-big img {
+  height: 40px;
+  margin: 20px;
+}
+
+.img-companies-long img {
+  height: 40px;
+  margin: 20px;
+  margin-left: 200px;
+}
+
+.img-companies-medium img{
   height: 60px;
   margin: 20px;
 }

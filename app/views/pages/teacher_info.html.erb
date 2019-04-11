@@ -35,7 +35,7 @@
 </div>
 <div class="banner-gray" style="background-image: linear-gradient(rgba(196,196,196,1),rgba(196,196,196,1))">
   <div class="container">
-    <ul class=inline-list>
+    <ul class=inline-list-teacher>
       <li class= "img-schools">
         <%= image_tag "highschool1.png", alt: "Highschool_logo" %>
       </li>
@@ -54,19 +54,25 @@
     </ul>
   </div>
 </div>
-<div class="card-product-page">
-  <div class="card-product-page-infos">
-    <ul class="nav justify-content-end">
-      <li class="logo2">
-        <%= image_tag "skilltransfer.png", alt: "Skilltransfer_logo"%>
-      </li>
-      <li>
+<div class="banner-white">
+  <div class="card-product-landing-logo">
+    <div class="card-product-landing-infos-logo landing-page-footer d-flex justify-content-start">
+      <%= image_tag "skilltransfer.png", alt: "Skilltransfer_logo", :class => "logo3" %>
+      <div class="footer-column d-flex flex-column">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">General</a>
-      </li>
-      <li>
+        <%= link_to "Homepage", root_path , class: "nav-link"%>
+        <% if user_signed_in? %>
+          <%= link_to "My profile", user_path(current_user), class: "nav-link enable" %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
+        <% end %>
+      </div>
+      <div class="footer-column d-flex flex-column">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Browse more</a>
-      </li>
-    </ul>
+        <%= link_to "For professionals", professional_info_path , class: "nav-link"%>
+        <!--  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">For Teachers</a> -->
+        <%= link_to "For teachers", teacher_info_path , class: "nav-link"%>
+      </div>
+    </div>
   </div>
-</div>
 </div>
