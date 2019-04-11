@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   def after_sign_in_path_for(resource)
-    user_path(current_user.id)
+    current_user.professionals.empty? ? user_path(current_user.id) : p_dashboard_path(current_user.id)
   end
 end
