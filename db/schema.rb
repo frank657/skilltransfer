@@ -44,11 +44,8 @@ ActiveRecord::Schema.define(version: 2019_04_10_075901) do
     t.boolean "confirmed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
-=======
     t.bigint "class_room_id"
     t.index ["class_room_id"], name: "index_lectures_on_class_room_id"
->>>>>>> origin
     t.index ["professional_id"], name: "index_lectures_on_professional_id"
   end
 
@@ -118,10 +115,6 @@ ActiveRecord::Schema.define(version: 2019_04_10_075901) do
   add_foreign_key "comments", "lectures"
   add_foreign_key "lectures", "class_rooms"
   add_foreign_key "lectures", "professionals"
-<<<<<<< HEAD
-  add_foreign_key "lectures", "teachers"
-=======
->>>>>>> origin
   add_foreign_key "professionals", "users"
   add_foreign_key "teachers", "users"
 end
