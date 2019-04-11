@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   end
 
   resources :lectures, only: [:show]
+  resources :videotokens, only: [:create]
 end
