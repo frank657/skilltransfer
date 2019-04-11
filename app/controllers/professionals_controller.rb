@@ -3,7 +3,15 @@ class ProfessionalsController < ApplicationController
 
   def index
     @professionals = Professional.all
+    @search = params["search"]
+    if @search.present?
+      @name = @search["name"]
+      @professionals = Professional.where(name: @name)
+      @professionals = Professional.where("name ILIKE ?", @name)
+      @professionals = Professional.where("name ILIKE ?", "%#{@name}%")
+    end
   end
+
 
   def show
   end
@@ -30,6 +38,14 @@ class ProfessionalsController < ApplicationController
       redirect_to user_path(current_user)
     else
       render :edit
+    end
+  end
+
+  def tagged
+    if params[:tag].present?
+      @professionals = Professional.tagged_with(params[:expertise_list])
+    else
+      @professionals = Professioanl.all
     end
   end
 

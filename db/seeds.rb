@@ -1,4 +1,4 @@
-Comment.delete_all if Rails.env.development?
+33Comment.delete_all if Rails.env.development?
 Lecture.delete_all if Rails.env.development?
 Professional.delete_all if Rails.env.development?
 ClassRoom.delete_all if Rails.env.development?
@@ -7,41 +7,41 @@ User.delete_all if Rails.env.development?
 
 def sample_question
   [ "Are you more of a hunter or a gatherer?",
-  "You’re a new addition to the crayon box. What color would you be and why?",
-  "We finish the interview and you step outside the office and find a lottery ticket that ends up winning $10 million. What would you do?",
-  "What do you think about when you’re alone in your car?",
-  "What’s your favorite ’90s jam?",
-  "If you could be any animal in the world, what animal would you be and why?",
-  "What was the last gift you gave someone?",
-  "What were you like in high school?",
-  "What’s the last thing you watched on TV and why did you choose to watch it?",
-  "Any advice for your previous boss?",
-  "Tell me something about your last job, other than money, that would have inspired you to keep working there.",
-  "What is the funniest thing that has happened to you recently?",
-  "What do you want to be when you grow up?",
-  "Which two organizations outside your own do you know the most people at and why?",
-  "Pretend you’re our CEO. What three concerns about the firm’s future keep you up at night?",
-  "If I were to hire you for this job and I granted you three promises with regard to working here, what would they be?",
-  "If you don’t get this job, what’s your backup plan?",
-  "What inspires you?",
-  "Teach me something I don’t know in the next five minutes.",
-  "What are you known for?",
-  "What do you work toward in your free time?",
-  "What’s the most interesting thing about you that we wouldn’t learn from your resume alone?",
-  "How would you rate your memory?",
-  "Code something from scratch in three hours. Then explain your design and solution.",
-  "If you woke up and had 2,000 unread emails and could only answer 300 of them, how would you choose which ones to answer?",
-  "How many pennies would fit into this room?",
-  "Can you name three consecutive days without using the words Wednesday, Friday, or Saturday?",
-  "Estimate how many windows are in New York.",
-  "How would you value the store on the corner?",
-  "How many square feet of pizza is eaten in the U.S. each year?",
-  "Describe the color yellow to somebody who is blind.",
-  "If you were to get rid of one state in the U.S., which would it be and why?",
-  "You’ve been given an elephant. You can’t give it away or sell it. What would you do with the elephant?",
-  "Who would win a fight between Spiderman and Batman?",
-  "How would you convince someone to do something they didn’t want to do?",
-  "A penguin walks through that door right now wearing a sombrero. What does he say and why is he here?"].sample
+    "You’re a new addition to the crayon box. What color would you be and why?",
+    "We finish the interview and you step outside the office and find a lottery ticket that ends up winning $10 million. What would you do?",
+    "What do you think about when you’re alone in your car?",
+    "What’s your favorite ’90s jam?",
+    "If you could be any animal in the world, what animal would you be and why?",
+    "What was the last gift you gave someone?",
+    "What were you like in high school?",
+    "What’s the last thing you watched on TV and why did you choose to watch it?",
+    "Any advice for your previous boss?",
+    "Tell me something about your last job, other than money, that would have inspired you to keep working there.",
+    "What is the funniest thing that has happened to you recently?",
+    "What do you want to be when you grow up?",
+    "Which two organizations outside your own do you know the most people at and why?",
+    "Pretend you’re our CEO. What three concerns about the firm’s future keep you up at night?",
+    "If I were to hire you for this job and I granted you three promises with regard to working here, what would they be?",
+    "If you don’t get this job, what’s your backup plan?",
+    "What inspires you?",
+    "Teach me something I don’t know in the next five minutes.",
+    "What are you known for?",
+    "What do you work toward in your free time?",
+    "What’s the most interesting thing about you that we wouldn’t learn from your resume alone?",
+    "How would you rate your memory?",
+    "Code something from scratch in three hours. Then explain your design and solution.",
+    "If you woke up and had 2,000 unread emails and could only answer 300 of them, how would you choose which ones to answer?",
+    "How many pennies would fit into this room?",
+    "Can you name three consecutive days without using the words Wednesday, Friday, or Saturday?",
+    "Estimate how many windows are in New York.",
+    "How would you value the store on the corner?",
+    "How many square feet of pizza is eaten in the U.S. each year?",
+    "Describe the color yellow to somebody who is blind.",
+    "If you were to get rid of one state in the U.S., which would it be and why?",
+    "You’ve been given an elephant. You can’t give it away or sell it. What would you do with the elephant?",
+    "Who would win a fight between Spiderman and Batman?",
+    "How would you convince someone to do something they didn’t want to do?",
+    "A penguin walks through that door right now wearing a sombrero. What does he say and why is he here?"].sample
 end
 
 def create_male_user
@@ -54,7 +54,7 @@ def create_male_user
     background_picture_url: "https://source.unsplash.com/1600x900/?#{['city','building','nature','people','office','professional','business'].sample}",
     email: "#{f_name}.#{l_name}@#{Faker::Internet.domain_name}",
     password: 'password'
-    )
+  )
 end
 
 def create_female_user
@@ -67,7 +67,7 @@ def create_female_user
     background_picture_url: "https://source.unsplash.com/1200x675/?#{['city','building','nature','people','office','professional','business'].sample}",
     email: "#{f_name}.#{l_name}@#{Faker::Internet.domain_name}",
     password: 'password'
-    )
+  )
 end
 
 def create_teacher
@@ -75,7 +75,7 @@ def create_teacher
     user_id: User.last.id,
     school: ["Cambridge international center", "Harrow International School Shanghai", "High School Affiliated to Fudan University", "High School Affiliated to Shanghai Jiao Tong University", "High School Affiliated to Shanghai University", "Jianping High School", "Minhang High School", "Nanyang Model High School", "No.1 High School Affiliated to East China Normal University", "No. 2 High School Attached to East China Normal University", "Shanghai Datong High School", "Shanghai Foreign Language School", "Shanghai Gezhi High School", "Shanghai High School", "Shanghai High School International Division", "Shanghai Nanhui Senior High School", "Shanghai No. 2 High School", "Shanghai No. 3 Girls' High School", "Shanghai Shixi High School", "Shanghai Xingzhi High School", "Shanghai Yan'an High School", "Shanghai Yucai High School", "Xuhui High School"].sample,
     title: ["Math Teacher", "Principal", "Vice Principal", "Academic Director", "Social Studies Teacher", "Science Teacher", "Life Skills Teacher"].sample
-    )
+  )
 end
 
 def create_prof
