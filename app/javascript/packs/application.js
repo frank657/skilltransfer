@@ -10,4 +10,3 @@ flatpickr(".datepicker", {
 
 
 
-
