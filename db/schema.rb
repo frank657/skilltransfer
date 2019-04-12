@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 2019_04_10_075901) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.string "video_link"
-    t.string "message"
     t.boolean "confirmed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -55,10 +54,6 @@ ActiveRecord::Schema.define(version: 2019_04_10_075901) do
     t.string "description"
     t.string "city"
     t.string "linkedin_url"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_professionals_on_user_id"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
