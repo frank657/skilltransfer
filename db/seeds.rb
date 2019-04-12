@@ -1,4 +1,4 @@
-33Comment.delete_all if Rails.env.development?
+Comment.delete_all if Rails.env.development?
 Lecture.delete_all if Rails.env.development?
 Professional.delete_all if Rails.env.development?
 ClassRoom.delete_all if Rails.env.development?
