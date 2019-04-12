@@ -1,5 +1,5 @@
 class LecturesController < ApplicationController
-  before_action :set_lecture, only: [:show]
+  before_action :set_lecture, only: [:show, :update]
 
   def index
     @lectures = current_user.lectures
@@ -25,6 +25,14 @@ class LecturesController < ApplicationController
     end
   end
 
+  def update
+    if @lecture.update(confirmed: true)
+      redirect_to p_dashboard_path(current_user)
+    else
+
+    end
+  end
+
   private
 
   def set_lecture
@@ -34,4 +42,5 @@ class LecturesController < ApplicationController
   def lecture_params
     params.require(:lecture).permit(:name, :message, :start_time, :end_time, :video_link, :confirmed, :class_room_id)
   end
+
 end
