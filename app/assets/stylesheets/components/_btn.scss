@@ -5,4 +5,29 @@
   color: white;
   border-radius: 5px;
   padding: 10px 10px;
+  font-size: 18px;
+}
+
+.btn-white {
+    margin-bottom: 20px;
+    margin-right: 10px;
+    margin-top: 10px;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 10px;
+    background-color: none;
+    border-color: #fff;
+    font-size: 18px;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.container-short {
+  height: 150px;
 }
