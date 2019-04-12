@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :professionals, except: :destroy do # only: [:index, :show, :new, :create, :edit, :update]
-    resources :lectures, only: [:new, :create, :index, :show, :edit, :update] do
+    resources :lectures, only: [:new, :create, :index] do
       resources :comments, only: [:new, :create]
     end
   end
@@ -21,6 +21,6 @@ Rails.application.routes.draw do
     resources :class_rooms, only: [:new, :create]
   end
 
-  resources :lectures, only: [:show]
+  resources :lectures, only: [:show, :edit, :update]
   resources :videotokens, only: [:create]
 end
