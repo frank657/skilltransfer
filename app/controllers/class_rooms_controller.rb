@@ -36,7 +36,7 @@ class ClassRoomsController < ApplicationController
   private
 
   def class_room_params
-    params.require(:class_room).permit(:name, :picture_url)
+    params.require(:class_room).permit(:name, :picture_url, :interest_list)
   end
 
   def set_class_room
