@@ -5,4 +5,9 @@ class UsersController < ApplicationController
     @professional = current_user.professionals.first
     @class_room = ClassRoom.new(teacher: @teacher)
   end
+
+  def professional_dashboard
+    @user = current_user
+    @professional = current_user.professionals.first
+  end
 end
