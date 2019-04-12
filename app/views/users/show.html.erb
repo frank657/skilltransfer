@@ -21,34 +21,50 @@
       <!-- <h5>You don’t have any class rooms yet. Create your first one.</h5> -->
       <div class="container">
         <!-- CLASS CARD -->
-        <% @user.class_rooms.each do |cr| %>
-          <div class="card-classroom">
-            <img src=<%= cr.picture_url %> class="avatar-large"/>
-            <div class="card-classroom-content">
-              <h3>Class</h3>
-              <h4><%= cr.name %></h4>
-              <p><% cr.interest_list.each do |i| %>
-                  <span class="btn btn-primary"><%= i %></span>
-                <% end %></p>
+
+        <div class="row">
+          <% @user.class_rooms.each do |cr| %>
+
+            <div class="col-12 col-md-4">
+              <div class="card mt-3 mb-5" style="width: 18rem;">
+                <img src=<%= cr.picture_url %> class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><%= cr.name %></h5>
+                    <p class="m-0 text-muted">Interests</p>
+                    <% cr.interest_list.each do |i| %>
+                      <small class="text-white px-1 mr-1 rounded bg-info"><%= i %></small>
+                    <% end %>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <% if cr.lectures.empty? %>
+                      No lecture scheduled
+                    <% else %>
+                      Next Lecture
+                      <p class="m-0"><%= cr.lectures.first.start_time.strftime('%b %e, %l:%M %p') %></p>
+                      <p class="m-0">with: <%= cr.lectures.first.professional.company %></p>
+                    <% end %>
+                  </li>
+                </ul>
+                <div class="card-body">
+                  <a><%= link_to 'Schedule a lecture', professionals_path, :class=>"card-link" %></a>
+                  <!-- <a href="#" class="card-link" data-toggle="modal" data-target="#myModal">Schedule a lecture</a> -->
+                </div>
+              </div>
             </div>
-            <div class="card-classroom-content">
-              <% if cr.lectures.empty? %>
-                <h4>No lecture scheduled</h4>
-              <% else %>
-                <h4>Next Lecture</h4>
-                <p><%= cr.lectures.first.start_time.strftime('%b %e, %l:%M %p') %></p>
-                <p>with: <%= cr.lectures.first.professional.company %></p>
-              <% end %>
-            </div>
-            <a><%= link_to 'Search professionals', professionals_path, :class=>"btn btn-primary ml-2" %></a>
-          </div>
-        <% end %>
+
+          <% end %>
+        </div>
+
+
         <!-- Trigger the modal with a button -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create a new classroom</button>
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
           <div class="modal-dialog">
-            <!-- Modal content-->
+
+                      <!-- Modal content-->
+
             <div class="modal-content">
               <div class="modal-header">
                 <h4 class="modal-title">Create classroom</h4>
