@@ -7,6 +7,7 @@ class ProfessionalsController < ApplicationController
     if @tag.present?
       @professionals = Professional.tagged_with(@tag)
     end
+    # @lecture = Lecture.new
   end
 
 

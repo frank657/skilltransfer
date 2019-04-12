@@ -4,15 +4,12 @@
 </div>
 <!-- script for picking category -->
 <!-- <div class="container"> -->
-
-  <!-- SEARCH -->
+<!-- SEARCH -->
 <!--   <%#= simple_form_for :search, url: professionals_path, method: "GET", html: { class: 'form-inline' } do |f| %>
     <%#= f.input :name, input_html: {value: ""} %>
     <%#= f.submit "Search", class: "btn btn-primary" %>
   <%# end %> -->
-
-
-  <!-- script for picking category -->
+<!-- script for picking category -->
 <!--   <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Dropdown button
@@ -31,8 +28,7 @@
       <%# end %>
     </div>
   </div> -->
-
-  <!-- script for picking category -->
+<!-- script for picking category -->
 <!--   <script>
     $(document).ready(function(){
       $("#myInput").on("keyup", function() {
@@ -43,16 +39,14 @@
       });
     });
   </script> -->
-  <!-- script for picking category -->
+<!-- script for picking category -->
 <!--   <script>
     $(document).ready(function() {
     $('.js-example-basic-single').select2();
     });
   </script> -->
 <!-- </div> -->
-
-<div class="container d-flex flex-column align-items-center">
-
+<div class="container flex-column align-items-center">
   <div style="width: 80%;" class="mb-4">
     <%= form_tag professionals_path, method: :get do %>
       <%= text_field_tag :query,
@@ -62,10 +56,8 @@
       %>
     <% end %>
   </div>
-
   <!-- Display professionals -->
   <% @professionals.each do |pro| %>
-
     <div class="card mb-3" style="width: 80%;">
       <div class="row no-gutters">
         <div class="col-md-2">
@@ -84,10 +76,10 @@
                   <small class="text-white px-1 mx-1 rounded bg-info"><%= e %></small>
                 <% end %>
               </p>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Send request</button>
+              <%= link_to 'Send a request', new_professional_lecture_path(pro), class: 'btn btn-primary' %>
+              <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Send request</button> -->
             </div>
           </div>
-
           <!-- Modal -->
           <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
@@ -101,29 +93,26 @@
                   <!-- date picker -->
                   <div class="container">
                     <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-                      <%= simple_form_for :search, method: "get" do |f| %>
-                        <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-                        <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-                        <%= f.input :text %>
-                        <%= f.submit :Request, class: "btn btn-primary" %>
-                      <% end %>
+
+<!--                       <%#= simple_form_for [@professional, @lecture], new_professional_lecture_path(pro) do |f| %>
+                        <%#= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+                        <%#= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+                        <%#= f.input :text %>
+                        <%#= f.submit :Request, class: "btn btn-primary" %>
+                      <%# end %> -->
+
+                      <%#= render 'lectures/form', lecture: @lecture %>
+
                     </div>
                   </div>
                 </div>
               </div>
 
-
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal" >Submit</button>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
     </div>
-
-
-    </div>
   <% end %>
 </div>
-
