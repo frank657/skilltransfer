@@ -4,15 +4,12 @@
 </div>
 <!-- script for picking category -->
 <!-- <div class="container"> -->
-
-  <!-- SEARCH -->
+<!-- SEARCH -->
 <!--   <%#= simple_form_for :search, url: professionals_path, method: "GET", html: { class: 'form-inline' } do |f| %>
     <%#= f.input :name, input_html: {value: ""} %>
     <%#= f.submit "Search", class: "btn btn-primary" %>
   <%# end %> -->
-
-
-  <!-- script for picking category -->
+<!-- script for picking category -->
 <!--   <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Dropdown button
@@ -31,8 +28,7 @@
       <%# end %>
     </div>
   </div> -->
-
-  <!-- script for picking category -->
+<!-- script for picking category -->
 <!--   <script>
     $(document).ready(function(){
       $("#myInput").on("keyup", function() {
@@ -43,16 +39,14 @@
       });
     });
   </script> -->
-  <!-- script for picking category -->
+<!-- script for picking category -->
 <!--   <script>
     $(document).ready(function() {
     $('.js-example-basic-single').select2();
     });
   </script> -->
 <!-- </div> -->
-
-<div class="container d-flex flex-column align-items-center">
-
+<div class="container flex-column align-items-center">
   <div style="width: 80%;" class="mb-4">
     <%= form_tag professionals_path, method: :get do %>
       <%= text_field_tag :query,
@@ -62,10 +56,8 @@
       %>
     <% end %>
   </div>
-
   <!-- Display professionals -->
   <% @professionals.each do |pro| %>
-
     <div class="card mb-3" style="width: 80%;">
       <div class="row no-gutters">
         <div class="col-md-3">
@@ -87,7 +79,6 @@
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Send request</button>
             </div>
           </div>
-
           <!-- Modal -->
           <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
@@ -111,19 +102,13 @@
                   </div>
                 </div>
               </div>
-
-
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal" >Submit</button>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" >Submit</button>
+              </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
-
-
-    </div>
   <% end %>
 </div>
-

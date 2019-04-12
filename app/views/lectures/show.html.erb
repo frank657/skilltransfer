@@ -2,27 +2,41 @@
 <div class="banner-short" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1528901166007-3784c7dd3653?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
   <h1>Your upcoming Lecture</h1>
 </div>
-<div class="container">
-  <h2><%= @lecture.name %></h2>
-  <h4>Scheduled for</h4>
-  <div class="flex">
-    <h5><%= @lecture.start_time %></h5>
-    <h5><%= @lecture.start_time %></h5>
-  </div>
-  <div class="notification">
-    <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large"/>
-    <div class="notification-content">
-      <h2><%= Date %></h2>
-      <h5><%= @lecture.start_time %></h5>
-      <h5><%= @lecture.start_time %></h5>
+<div class="container mb-4">
+  <div class="card mb-3" style="width: 100%;">
+    <div class="row no-gutters">
+      <div class="col-md-3">
+        <div class="card-body" style="width: 100%;">
+          <img style="height: 180px" style="height: 180px"; src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80" class="card-img rounded-circle " alt="profile picture" "!important >
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="card-body">
+          <h4 class="card-title"><%= @lecture.name %></h4>
+          <small class="text-white px-1 mb-5 rounded bg-info">confirmed</small>
+          <h5 class="card-text mt-3">
+            <i class="fas fa-clock mr-3 mb-3"></i>Scheduled for: <%= @lecture.start_time %></h5>
+          <p class="card-title"><%= @lecture.message %></p>
+          <div class="d-flex justify-content-between align-items-end">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Access Lesson</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <textarea class="form-control" rows="12"></textarea>
-  <div class="container">
-    <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-      <%= simple_form_for :search, method: "get" do |f| %>
-        <%= f.input :text %>
-        <%= f.submit :Request, class: "btn btn-primary" %>
-      <% end %>
+</div>
+<div class="container">
+  <div class="card mb-3" style="width: 100%;">
+    <div class="row no-gutters">
+      <div class="col-md-12">
+        <div class="card-body" style="width: 100%;">
+          <div class="form-wrapper" style="width: 100%; margin: 0 auto;">
+            <%= simple_form_for :search, method: "get" do |f| %>
+              <%= f.input :Comment, :as => :text %>
+              <%= f.submit :Post, class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
