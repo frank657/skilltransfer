@@ -10,5 +10,6 @@ class UsersController < ApplicationController
   def professional_dashboard
     @user = current_user
     @professional = current_user.professionals.first
+    @lectures = current_user.lectures
   end
 end
