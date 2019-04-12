@@ -5,7 +5,7 @@
       <h2><%= @user.first_name %> <%= @user.last_name %></h2>
       <h3><%= @professional.title %></h3>
       <p><%= @user.email %></p>
-      <p><%= @professional.company %></p>
+      <h4><%= @professional.company %></h4>
     </div>
   </div>
 </div>
@@ -22,14 +22,40 @@
       <!-- <h5>You don’t have any class rooms yet. Create your first one.</h5> -->
       <div class="container">
         <!-- PROFILE SECTION -->
-        <p><%= @user.first_name %> <%= @user.last_name %></p>
-        <p><%= @professional.company %></p>
+        <h4><%= @user.first_name %> <%= @user.last_name %></h4>
+        <h2><%= @professional.company %></h2>
         <p><%= @professional.title %></p>
       </div>
     </div>
-
     <!-- TAB 2 REQUESTS -->
     <div id="requests" class="tab-pane fade">
+      <h3>Your lecture requests</h3>
+      <p>You don't have any requests yet.</p>
+      <div class="container">
+        <!-- REQUESTS CARD -->
+        <% @user.class_rooms.each do |cr| %>
+          <% cr.lectures.each do |l| %>
+            <div class="card-classroom">
+              <!-- <img src=<%= cr.picture_url %> class="avatar-large"/> -->
+              <div class="card-classroom-content">
+                <h3>Lecture</h3>
+                <h4><%= l.name %></h4>
+                <h4><%= l.professional.company %></h4>
+                <h4><%= l.professional.user.first_name %> <%= l.professional.user.last_name %></h4>
+                <h4><%= l.professional.title %></h4>
+              </div>
+              <div class="card-classroom-content">
+                <h4>Time</h4>
+                <p><%= l.start_time.strftime('%b %e, %l:%M %p') %></p>
+              </div>
+              <a><%= link_to 'Accept lecture', lecture_path(l), :class=>"btn btn-primary ml-2" %></a>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <!-- TAB 3 LECTURES -->
+    <div id="lectures" class="tab-pane fade">
       <h3>Your upcoming lectures</h3>
       <p>You don't have any upcoming lectures yet.</p>
       <div class="container">
@@ -49,16 +75,12 @@
                 <h4>Time</h4>
                 <p><%= l.start_time.strftime('%b %e, %l:%M %p') %></p>
               </div>
-              <a><%= link_to 'View lecture', lecture_path(l), :class=>"btn btn-primary ml-2" %></a>
+              <i class="fas fa-video"></i>
+              <a><%= link_to 'Go to lecture', lecture_path(l), :class=>"btn btn-primary ml-2" %></a>
             </div>
           <% end %>
         <% end %>
       </div>
-    </div>
-    <!-- TAB 3 LECTURES -->
-    <div id="lectures" class="tab-pane fade">
-      <h3>Your upcoming lectures</h3>
-      <p>You don't have any upcoming lectures yet.</p>
     </div>
   </div>
 </div>
