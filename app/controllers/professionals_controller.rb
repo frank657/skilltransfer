@@ -43,7 +43,7 @@ class ProfessionalsController < ApplicationController
     if params[:tag].present?
       @professionals = Professional.tagged_with(params[:expertise_list])
     else
-      @professionals = Professioanl.all
+      @professionals = Professional.all
     end
   end
 
