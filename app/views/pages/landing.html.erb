@@ -32,6 +32,7 @@
             <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
         <% end %>
+        <!-- changed -->
         <li class="nav-item dropdown">
           <% if current_user.profile_picture_url != nil %>
             <%= image_tag current_user.profile_picture_url, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
