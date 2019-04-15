@@ -1,11 +1,9 @@
 class VideotokensController < ApplicationController
   def create
     # Define User Identity
-    # if current_prospective != nil
-      identity = current_user.first_name
-    # elsif current_mentor != nil
-    #   identity = current_mentor.first_name
-    # end
+    # identity = current_user.first_name
+
+    identity = current_user.teachers.empty? ? "#{current_user.first_name} from #{current_user.professionals.first.company}" : current_user.first_name
 
     # Create Video grant for our token
     video_grant = Twilio::JWT::AccessToken::VideoGrant.new
