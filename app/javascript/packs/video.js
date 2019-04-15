@@ -23,9 +23,12 @@ Rails.ajax({
     // Bind button to join room
     document.getElementById('button-join').onclick = function () {
       // roomName = document.getElementById('room-name').value;
-      roomName = "Skilltransfer video lecture"
+      // roomName = "Skilltransfer video lecture"
+      const room = document.querySelector('#room-controls').dataset.roomName;
+      console.log(`The room name is ${room}`);
+      roomName = room
       if (roomName) {
-        log("Joining chat '" + roomName + "'...");
+        // log("Joining chat '" + roomName + "'...");
 
         var connectOptions = { name: roomName, logLevel: 'debug' };
         if (previewTracks) {
@@ -33,7 +36,7 @@ Rails.ajax({
         }
 
         Twilio.Video.connect(data.token, connectOptions).then(roomJoined, function(error) {
-          log('Could not connect to Twilio: ' + error.message);
+          // log('Could not connect to Twilio: ' + error.message);
         });
       } else {
         alert('Please enter a room name.');
@@ -42,7 +45,7 @@ Rails.ajax({
 
     // Bind button to leave room
     document.getElementById('button-leave').onclick = function () {
-      log('Leaving room...');
+      // log('Leaving room...');
       activeRoom.disconnect();
     };
   }
@@ -79,28 +82,28 @@ Rails.ajax({
 
 
     //  Local video preview
-    document.getElementById('button-preview').onclick = function() {
-      var localTracksPromise = previewTracks
-      ? Promise.resolve(previewTracks)
-      : Twilio.Video.createLocalTracks();
+    // document.getElementById('button-preview').onclick = function() {
+    //   var localTracksPromise = previewTracks
+    //   ? Promise.resolve(previewTracks)
+    //   : Twilio.Video.createLocalTracks();
 
-      localTracksPromise.then(function(tracks) {
-        previewTracks = tracks;
-        var previewContainer = document.getElementById('local-media');
-        if (!previewContainer.querySelector('video')) {
-          attachTracks(tracks, previewContainer);
-        }
-      }, function(error) {
-        console.error('Unable to access local media', error);
-        log('Unable to access Camera and Microphone');
-      });
-    };
+    //   localTracksPromise.then(function(tracks) {
+    //     previewTracks = tracks;
+    //     var previewContainer = document.getElementById('local-media');
+    //     if (!previewContainer.querySelector('video')) {
+    //       attachTracks(tracks, previewContainer);
+    //     }
+    //   }, function(error) {
+    //     console.error('Unable to access local media', error);
+    //     // log('Unable to access Camera and Microphone');
+    //   });
+    // };
 
     // Successfully connected!
     function roomJoined(room) {
       activeRoom = room;
 
-      log("Joined as '" + identity + "'");
+      // log("Joined as '" + identity + "'");
       document.getElementById('button-join').style.display = 'none';
       document.getElementById('button-leave').style.display = 'inline';
 
@@ -111,37 +114,37 @@ Rails.ajax({
       }
 
       room.participants.forEach(function(participant) {
-        log("Already in Chat: '" + participant.identity + "'");
+        // log("Already in Chat: '" + participant.identity + "'");
         var previewContainer = document.getElementById('remote-media');
         attachParticipantTracks(participant, previewContainer);
       });
 
       // When a participant joins, draw their video on screen
       room.on('participantConnected', function(participant) {
-        log("Joining: '" + participant.identity + "'");
+        // log("Joining: '" + participant.identity + "'");
       });
 
       room.on('trackAdded', function(track, participant) {
-        log(participant.identity + " added track: " + track.kind);
+        // log(participant.identity + " added track: " + track.kind);
         var previewContainer = document.getElementById('remote-media');
         attachTracks([track], previewContainer);
       });
 
       room.on('trackRemoved', function(track, participant) {
-        log(participant.identity + " removed track: " + track.kind);
+        // log(participant.identity + " removed track: " + track.kind);
         detachTracks([track]);
       });
 
       // When a participant disconnects, note in log
       room.on('participantDisconnected', function(participant) {
-        log("Participant '" + participant.identity + "' left the room");
+        // log("Participant '" + participant.identity + "' left the room");
         detachParticipantTracks(participant);
       });
 
       // When we are disconnected, stop capturing local video
       // Also remove media for all remote participants
       room.on('disconnected', function() {
-        log('Left');
+        // log('Left');
 
         const roomSID = activeRoom.sid;
         // console.log(`....................${identity}`)
@@ -159,11 +162,11 @@ Rails.ajax({
 
 
     // Activity log
-    function log(message) {
-      var logDiv = document.getElementById('log');
-      logDiv.innerHTML += '<p>&gt;&nbsp;' + message + '</p>';
-      logDiv.scrollTop = logDiv.scrollHeight;
-    }
+    // function log(message) {
+    //   var logDiv = document.getElementById('log');
+    //   logDiv.innerHTML += '<p>&gt;&nbsp;' + message + '</p>';
+    //   logDiv.scrollTop = logDiv.scrollHeight;
+    // }
 
     function leaveRoomIfJoined() {
       if (activeRoom) {
