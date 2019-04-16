@@ -30,6 +30,11 @@ justify-content: right;
 
 .banner-second {
   background-color: #FFFFFF;
+  height: 350px;
+}
+
+.banner-third {
+  background-color: #FFFFFF;
   height: 250px;
 }
 
@@ -299,7 +304,7 @@ ul.inline-list-professional-second {
 
 
 ul.inline-list-teacher {
-  position: absolute;
+  position: relative;
   margin: 106px;
   padding: 0px;
 }
@@ -566,7 +571,7 @@ ul.inline-list-teacher {
 
 .center-landing {
   margin: auto;
-  width: 50%;
+  width: 100%;
   padding: 10px;
   margin-top: 80px;
   text-align: center;
