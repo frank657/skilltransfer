@@ -18,14 +18,15 @@ Rails.ajax({
   success: data => {
     identity = data.identity;
 
-    document.getElementById('room-controls').style.display = 'block';
+    // document.getElementById('room-controls').style.display = 'block';
 
     // Bind button to join room
     document.getElementById('button-join').onclick = function () {
       // roomName = document.getElementById('room-name').value;
       // roomName = "Skilltransfer video lecture"
-      const room = document.querySelector('#room-controls').dataset.roomName;
+      const room = document.querySelector('#button-join').dataset.roomName;
       console.log(`The room name is ${room}`);
+      console.log(`${identity} joined the room`)
       roomName = room
       if (roomName) {
         // log("Joining chat '" + roomName + "'...");

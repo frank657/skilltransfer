@@ -3,22 +3,24 @@
   <h2 class="card-title"><%= @lecture.name %></h2>
 </div>
 
-
 <!-- VIDEO -->
-<div id="remote-media"></div>
-<div id="controls">
-  <div id="preview">
+<div>
+
+  <!-- <div id="preview"> -->
     <!-- <p class="instructions">Hello Beautiful</p> -->
-    <div id="local-media"></div>
-  </div>
-  <div id="room-controls" data-room-name=<%= @lecture.name %> >
-    <!-- <p class="instructions">Room Name:</p> -->
-    <!-- <input id="room-name" type="text" placeholder="Enter a room name" /> -->
-    <!-- <button id="button-preview">Preview My Camera</button> -->
-    <button id="button-join">Start lecture</button>
-    <button id="button-leave">Exit lecture</button>
-  </div>
-  <!-- <div id="log"></div> -->
+  <div id="local-media"><div id="remote-media"></div></div>
+
+  <!-- </div> -->
+  <!-- <div id="controls">
+    <div id="room-controls" data-room-name=<%= @lecture.name %> > -->
+      <!-- <p class="instructions">Room Name:</p> -->
+      <!-- <input id="room-name" type="text" placeholder="Enter a room name" /> -->
+      <!-- <button id="button-preview">Preview My Camera</button> -->
+  <!--     <button id="button-join">Start lecture</button>
+      <button id="button-leave">Exit lecture</button> -->
+    <!-- </div> -->
+    <!-- <div id="log"></div> -->
+  <!-- </div> -->
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -42,7 +44,9 @@
             <i class="fas fa-clock mr-3 mb-3"></i><strong> Scheduled for:</strong> <%= @lecture.start_time.strftime('%I :%M %p' ' on ' '%A, %B %e') %></h5>
           <p class="card-title"><%= @lecture.message %></p>
           <div class="d-flex justify-content-between align-items-end">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#linkToYoutube">Access Lesson</button>
+            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#linkToYoutube">Start lecture</button> -->
+            <button class="video-button btn btn-primary" id="button-join" data-room-name=<%= @lecture.name %> >Start lecture</button>
+            <button class="video-button btn btn-primary" id="button-leave">Exit lecture</button>
           </div>
         </div>
       </div>
