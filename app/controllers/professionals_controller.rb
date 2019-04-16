@@ -3,10 +3,8 @@ class ProfessionalsController < ApplicationController
 
   def index
     @professionals = Professional.all
-    @tag = params["query"]
-    if @tag.present?
-      @professionals = Professional.tagged_with(@tag)
-    end
+    @professionals = Professional.tagged_with(params["query"]) if params["query"].present?
+    @professionals = Professional.tagged_with(params["tag"]) if params["tag"].present?
     # @lecture = Lecture.new
   end
 
