@@ -18,26 +18,41 @@
           </li>
         <% end %>
       <% end %>
-      <li><%= link_to "For teachers", teacher_info_path , class: "nav-link"%>
+      <!-- <li><%= link_to "For teachers", teacher_info_path , class: "nav-link"%>
       </li>
       <li><%= link_to "For professionals", professional_info_path , class: "nav-link"%>
-      </li>
-      <% if user_signed_in? %>
-        <% if current_user.professionals.empty? %>
-          <li class="nav-item">
-            <%= link_to "Find Professionals", professionals_path, class: "nav-link" %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-        <% end %>
+      </li> -->
+      <div>
+        <% if user_signed_in? %>
+          <% if current_user.professionals.empty? %>
+            <li class="nav-item">
+              <%= link_to "Find Professionals", professionals_path, class: "nav-link" %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Messages", "#", class: "nav-link" %>
+            </li>
+          <% end %>
+        </div>
+        <!-- ========= -->
         <!-- changed -->
         <li class="nav-item dropdown">
           <% if current_user.profile_picture_url != nil %>
             <%= image_tag current_user.profile_picture_url, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <!-- ======== -->
+            <%= link_to "For teachers", teacher_info_path , class: "dropdown-item"%>
+            <%= link_to "For professionals", professional_info_path , class: "dropdown-item"%>
+            <!-- ======== -->
+            <!-- <div>
+            <% if user_signed_in? %>
+              <% if current_user.professionals.empty? %>
+                <%= link_to "Find Professionals", professionals_path, class: "dropdown-item" %>
+              <% end %>
+            <% end %>
+          </div> -->
+            <!-- ======== -->
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
@@ -50,59 +65,56 @@
   </div>
 </div>
 <div class="banner-home">
-  <div class="container">
+  <div class="infobox">
     <h1 class="banner-h1" class="mb-3">Share your skills for a better good</h1>
     <p class="banner-p">We connect skilled professionals with schools and students in need</p>
+    <!-- ====== -->
     <div class="d-flex justify-content-center mt-3 mb-3">
       <%= link_to "For Teachers", teacher_info_path, class: "btn btn-primary mr-2"%>
       <%= link_to "For Professionals", professional_info_path, class: "btn btn-white mr-2"%>
     </div>
+    <!-- ======= -->
   </div>
 </div>
-<div class="container-short">
-  <h1 class="center">Make a difference</h1>
+<div class="infobox-landing">
+  <h1 class="center-landing">Make a difference</h1>
 </div>
 </div>
-<!-- <div class="banner-gray"> -->
-<!--  <div class="text">
-      ul class="nav justify-content-end">
-        <li>
-          <div class="nav-link" tabindex="-1" aria-disabled="true">
-            <%#= link_to "For Teachers", teacher_info_path %>
-          </div>
-        </li>
-        <li>
-          <%#= link_to "For Professionals", professional_info_path, class: "nav-link" %>
-        </li>
-        <-- <li>
-          <%# if user_signed_in? %>
-            <%#= link_to "My Profile", user_path(current_user), class: "nav-link enable" %>
-          <%# else %>
-            <%#= link_to "Sign in", new_user_session_path, class: "btn-ghost" %>
-          <%# end %>
-        </li>
-      </ul>
-
-     </div> -->
-<!-- <div class="text-left">
-      <h1 class="word-white">We connect young talents with the professional industries</h1>
-    </div> -->
-<!--   <a class="btn-flat" href="#">For Teachers</a>
-      <a class="btn-flat" href="#">For Professionals</a>
-     </div> -->
-<!-- </div>
-</div> -->
-<!-- <div class="container"> -->
 <div class="landingpage">
   <div class="card-product-landing d-flex justify-content-center">
     <%= image_tag"landing.png", alt: "professional"%>
     <div class="card-product-landing-infos">
     </div>
   </div>
-  <div class="d-flex justify-content-center btn-group">
-    <%= link_to "For Teachers", teacher_info_path, class: "btn-flat"%>
-    <%= link_to "For Professionals", professional_info_path, class: "btn-flat"%>
+  <!--  ============== -->
+  <div class="notification-teachers">
+    <div class="testimonials">
+      <%= image_tag "kelvin.png", alt: "Avatar", :class => "avatar-large landing"%>
+    </div>
+    <div class="testimonials-name">
+      <h3><strong>Kelvin L.</strong></h3>
+      <p><strong>Biology Teacher</strong></p>
+      <p>Flower Bridge High School</p>
+    </div>
+    <div class="testimonials-content">
+      <p>Skill Transfer has been instrumental in getting my students to see the big picture of how the most minute details of what we learn in lecture are actually connected to how their professional careers will pan out 20, 30 even 40 years after they leave my classroom.</p>
+    </div>
   </div>
+  <!--  ============== -->
+  <div class="notification-professionals">
+    <div class="testimonials">
+      <%= image_tag "jeff.png", alt: "Avatar", :class => "avatar-large landing"%>
+    </div>
+    <div class="testimonials-name">
+      <h3><strong>Jeffery W.</strong></h3>
+      <p><strong>Secret Agent</strong></p>
+      <p>Stark Industries</p>
+    </div>
+    <div class="testimonials-content">
+      <p>Best service ever! Helped me connect to the young talents in high school who have very strong potentials in their careers. I am also very glad to help them discover their future. JIA YOU everyone!</p>
+    </div>
+  </div>
+  <!-- ============== -->
   <div class="banner-white">
     <div class="card-product-landing-logo">
       <div class="card-product-landing-infos-logo landing-page-footer-main d-flex justify-content-start">
