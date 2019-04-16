@@ -14,7 +14,7 @@ flatpickr(".datepicker", {
 })
 
 
-document.getElementById("btn-link").addEventListener("click", linkToYoutube);
+// document.getElementById("btn-link").addEventListener("click", linkToYoutube);
 
 function linkToYoutube() {
   document.getElementById("demo").innerHTML = Date();
