@@ -117,6 +117,14 @@ div#controls div#room-controls button {
   color: #686865;
   background: 0 0;
   border: 1px solid #686865;
+  opacity: 0.7;
+  transition: 0.5s;
+}
+
+div#controls div#room-controls button {
+  &:hover {
+    opacity: 1;
+  }
 }
 
 div#controls div#room-controls button#button-leave {
