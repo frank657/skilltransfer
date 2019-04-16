@@ -28,6 +28,11 @@ justify-content: right;
   height: 400px;
 }
 
+.banner-second {
+  background-color: #FFFFFF;
+  height: 400px;
+}
+
 .banner-blue {
   background-color: #1B2AAA;
   height: 350px;
@@ -184,7 +189,7 @@ justify-content: right;
   background-position: center;
   background: #FFFFFF;
   margin: 50px;
-  margin-top: 350px;
+  margin-top: 200px;
   margin-bottom: 200px;
 }
 
@@ -277,7 +282,8 @@ justify-content: right;
 
 ul.inline-list-professional {
   position: absolute;
-  margin: 135px;
+  margin-top: 135px;
+  margin-bottom: 135px;
   padding: 0px;
 }
 
@@ -370,7 +376,7 @@ ul.inline-list-teacher {
 
 .card-product-landing {
     overflow: hidden;
-    height: 800px;
+    height: 600px;
     background: white;
     display: flex;
     align-items: center;
@@ -379,7 +385,7 @@ ul.inline-list-teacher {
 
 .card-product-landing img {
   position: relative;
-  height: 600px;
+  height: 450px;
   object-fit: cover;
 }
 
@@ -446,13 +452,13 @@ ul.inline-list-teacher {
 // }
 
 .notification-professionals {
-  background-color: #1B2AAA;
+  background-color: #7098FF;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
   padding: 8px 16px;
   border: 0px;
-  height: 300px;
+  height: 250px;
 }
 
 .notification-teachers {
@@ -462,7 +468,7 @@ ul.inline-list-teacher {
   margin-bottom: 20px;
   padding: 8px 16px;
   border: 0px;
-  height: 300px;
+  height: 250px;
 }
 
 // .notification .notification-content {
@@ -503,9 +509,9 @@ ul.inline-list-teacher {
   text-align: left;
   color: #FFFFFF;
   font-family: "Open Sans", "Helvetica", "sans-serif";
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin: 20px;
-  line-height: 1;
+  line-height: 1.2;
   width: 200px;
 }
 
@@ -513,16 +519,16 @@ ul.inline-list-teacher {
   text-align: left;
   color: #FFFFFF;
   font-family: "Open Sans", "Helvetica", "sans-serif";
-  font-size: 1rem;
+  font-size: 0.8rem;
   margin: 20px;
-  line-height: 1;
+  line-height: 0.1;
 }
 
 .testimonials-content p{
   text-align: left;
   color: #FFFFFF;
   font-family: "Open Sans", "Helvetica", "sans-serif";
-  font-size: 1.2rem;
+  font-size: 1rem;
   // margin: 100px;
   line-height: 2;
   padding: 30px;
@@ -551,7 +557,7 @@ ul.inline-list-teacher {
   margin: auto;
   width: 50%;
   padding: 10px;
-  margin-top: 100px;
+  margin-top: 80px;
   text-align: center;
   font-family: "Open Sans", "Helvetica", "sans-serif";
 }
@@ -560,4 +566,94 @@ ul.inline-list-teacher {
   margin-left: 10vw;
 }
 
+.commerical-box {
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 250px;
+ justify-content: space-between;
+
+//    display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   height: 400px;
+//   justify-content: center;
+  // margin: 100px;
+}
+
+.commerical-list {
+  position: absolute;
+  margin: 106px;
+  padding: 0px;
+}
+
+ul.commerical-list {
+  position: relative;
+  margin: 50px;
+  padding: 0px;
+}
+
+.commerical-list li{
+  display: inline-block;
+}
+
+.commerical-icon {
+  justify-content: space-between;
+  font-size: 100px;
+  margin-left: 115px;
+  margin-right: 115px;
+  text-align: center;
+  width: 110px;
+  color: gray;
+  // padding: 30px;
+}
+
+.commerical-word{
+  font-size: 15px;
+  font-weight: bold;
+  width: 110px;
+}
+
+.container-icon {
+  background-color: #1B2AAA;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  padding: 8px 16px;
+  border: 0px;
+  height: 200px;
+  justify-content: center;
+}
+
+.container-icon h2{
+  margin-bottom: 0;
+  color: #FFFFFF;
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+}
+
+ul.icon-list {
+  padding-left: 20px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.icon-list li {
+  display: inline-block;
+
+}
+
+.link-icon {
+  font-size: 40px;
+  margin: 10px;
+  color: #FFFFFF;
+}
+
+.link-icon:hover {
+  color: gray;
+}
+
+// .option {
+//   margin-top: 150px;
+// }
