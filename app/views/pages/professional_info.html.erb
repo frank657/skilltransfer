@@ -57,65 +57,61 @@
     </ul>
   </div>
 </div>
-<div class="banner-blue">
+<!-- new banner -->
+<div class="banner-pro" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1498758536662-35b82cd15e29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80)">
+  <h2 class="mb-3">Share your knowledges and skills for a better good</h2>
+</div>
+<div class="card-product-page">
+  <%= image_tag"professionals.png", alt: "professional"%>
+  <div class="card-product-page-infos">
+    <h2>Share your experiences, change others' lifes</h2>
+    <p>Obtain personal satisfaction from making a difference to the career development of the others. Enhance your people skills such as leadership, interpersonal skills and communication.</p>
+    <a class="btn btn-primary" href="#">Sign up as professional</a>
+  </div>
+</div>
+<div class="banner-gray">
   <div class="container">
-    <ul class="nav justify-content-end">
-      <div class="text-left">
-        <h1 class="word-white">Share your knowledges and skills for a better good</h1>
+    <ul class=inline-list>
+      <li class= "img-companies-big">
+        <%= image_tag "omg.png", alt: "Company_logo" %>
+      </li>
+      <li class= "img-companies">
+        <%= image_tag "pear.png", alt: "Company_logo"%>
+      </li>
+      <li class= "img-companies">
+        <%= image_tag "enterprise.png", alt: "Company_logo"%>
+      </li>
+      <li class= "img-companies">
+        <%= image_tag "unbrella.png", alt: "Company_logo"%>
+      </li>
+      <li class= "img-companies-medium">
+        <%= image_tag "cyberdyne.png", alt: "Company_logo"%>
+      </li>
+      <li class= "img-companies-long">
+        <%= image_tag "stark.png", alt: "Company_logo"%>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="banner-white">
+  <div class="card-product-landing-logo">
+    <div class="card-product-landing-infos-logo landing-page-footer d-flex justify-content-start">
+      <%= image_tag "skilltransfer.png", alt: "Skilltransfer_logo", :class => "logo3" %>
+      <div class="footer-column d-flex flex-column">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">General</a>
+        <%= link_to "Homepage", root_path , class: "nav-link"%>
+        <% if user_signed_in? %>
+          <%= link_to "My profile", user_path(current_user), class: "nav-link enable" %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
+        <% end %>
       </div>
-      <a class="btn-flat-page" href="#">Sign up as professional</a>
-    </div>
-  </div>
-  <div class="card-product-page">
-    <%= image_tag"professionals.png", alt: "professional"%>
-    <div class="card-product-page-infos">
-      <h2>Share your experiences, change others' lifes</h2>
-      <p>Obtain personal satisfaction from making a difference to the career development of the others. Enhance your people skills such as leadership, interpersonal skills and communication.</p>
-    </div>
-  </div>
-  <div class="banner-gray">
-    <div class="container">
-      <ul class=inline-list>
-        <li class= "img-companies-big">
-          <%= image_tag "omg.png", alt: "Company_logo" %>
-        </li>
-        <li class= "img-companies">
-          <%= image_tag "pear.png", alt: "Company_logo"%>
-        </li>
-        <li class= "img-companies">
-          <%= image_tag "enterprise.png", alt: "Company_logo"%>
-        </li>
-        <li class= "img-companies">
-          <%= image_tag "unbrella.png", alt: "Company_logo"%>
-        </li>
-        <li class= "img-companies-medium">
-          <%= image_tag "cyberdyne.png", alt: "Company_logo"%>
-        </li>
-        <li class= "img-companies-long">
-          <%= image_tag "stark.png", alt: "Company_logo"%>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="banner-white">
-    <div class="card-product-landing-logo">
-      <div class="card-product-landing-infos-logo landing-page-footer d-flex justify-content-start">
-        <%= image_tag "skilltransfer.png", alt: "Skilltransfer_logo", :class => "logo3" %>
-        <div class="footer-column d-flex flex-column">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">General</a>
-          <%= link_to "Homepage", root_path , class: "nav-link"%>
-          <% if user_signed_in? %>
-            <%= link_to "My profile", user_path(current_user), class: "nav-link enable" %>
-          <% else %>
-            <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
-          <% end %>
-        </div>
-        <div class="footer-column d-flex flex-column">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Browse more</a>
-          <%= link_to "For professionals", professional_info_path , class: "nav-link"%>
-          <!--  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">For Teachers</a> -->
-          <%= link_to "For teachers", teacher_info_path , class: "nav-link"%>
-        </div>
+      <div class="footer-column d-flex flex-column">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Browse more</a>
+        <%= link_to "For professionals", professional_info_path , class: "nav-link"%>
+        <!--  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">For Teachers</a> -->
+        <%= link_to "For teachers", teacher_info_path , class: "nav-link"%>
       </div>
     </div>
   </div>
+</div>
