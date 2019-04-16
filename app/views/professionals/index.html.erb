@@ -56,6 +56,11 @@
       %>
     <% end %>
   </div>
+
+  <% if params[:tag].present? %>
+    <h4 class="mb-4 text-white px-2 py-1 rounded bg-info d-inline-block"><%= "##{params[:tag]}" %></h4>
+  <% end %>
+
   <!-- Display professionals -->
   <% @professionals.each do |pro| %>
     <div class="card mb-3" style="width: 80%;">
@@ -71,11 +76,15 @@
             <h5 class="card-text"><i class="fas fa-building mr-3"></i><%= pro.company %></h5>
             <p class="card-text text-muted"><%= pro.title %></p>
             <div class="d-flex justify-content-between align-items-end">
-              <p class="card-text"><i class="fas fa-tag"></i>
-                <% pro.expertise_list.each do |e| %>
-                  <small class="text-white px-1 mx-1 rounded bg-info"><%= e %></small>
-                <% end %>
-              </p>
+              <div class="d-flex">
+                <p class="card-text"><i class="fas fa-tag"></i>
+                  <% pro.expertise_list.each do |e| %>
+                  <form action="" method="get">
+                    <small class="text-white px-1 mx-1 rounded bg-info"><input style="all: unset;" type="submit" name="tag" value=<%= e %> /></small>
+                  </form>
+                  <% end %>
+                </p>
+              </div>
               <%= link_to 'Send a request', new_professional_lecture_path(pro), class: 'btn btn-primary' %>
               <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Send request</button> -->
             </div>
