@@ -25,7 +25,7 @@ justify-content: right;
 
 .banner-gray {
   background-color: #F4F4F4;
-  height: 500px;
+  height: 400px;
 }
 
 .banner-blue {
@@ -50,6 +50,14 @@ justify-content: right;
   // padding-left: 15px;
   margin: auto;
   height: 350px;
+  justify-content: space-between;
+}
+
+.imagbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 400px;
   justify-content: space-between;
 }
 
@@ -267,24 +275,35 @@ justify-content: right;
   margin-left: 30px;
 }
 
-ul.inline-list {
+ul.inline-list-professional {
   position: absolute;
-  margin: 115px;
+  margin: 135px;
+  padding: 0px;
 }
 
 ul.inline-list-teacher {
   position: absolute;
-  margin: 80px;
-  margin-left: 200px;
-  margin-right: 200px;
+  margin: 106px;
   padding: 0px;
 }
+
+// ul.inline-list-teacher {
+//   position: absolute;
+//   margin: 80px;
+//   margin-left: 200px;
+//   margin-right: 200px;
+//   padding: 0px;
+// }
 
 .inline-list li {
   display: inline-block;
 }
 
 .inline-list-teacher li {
+  display: inline-block;
+}
+
+.inline-list-professional li {
   display: inline-block;
 }
 
