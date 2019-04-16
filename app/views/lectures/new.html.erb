@@ -2,6 +2,7 @@
 <%= simple_form_for [@professional, @lecture] do |f| %>
   <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker"} %>
   <%= f.input :end_time, as: :string, required: false, input_html: {class: "datepicker"} %>
+  <%= f.input :name %>
   <%= f.input :message %>
   <%= f.association :class_room, collection: current_user.class_rooms %>
   <%= f.submit :Request, class: "btn btn-primary" %>
