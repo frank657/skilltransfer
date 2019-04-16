@@ -3,13 +3,11 @@
   <h2 class="card-title"><%= @lecture.name %></h2>
 </div>
 
-<div class="container">
 <!-- VIDEO -->
-  <div>
-
+  <div style="width: 100%;">
     <!-- <div id="preview"> -->
       <!-- <p class="instructions">Hello Beautiful</p> -->
-    <div id="local-media"><div id="remote-media"></div></div>
+    <div id="remote-media"></div>
 
     <!-- </div> -->
     <!-- <div id="controls">
@@ -28,6 +26,7 @@
 
 
 
+  <div class="container">
   <!-- LECTURE CONTENT -->
   <div class="card mb-3" style="width: 100%;">
     <div class="row no-gutters">
@@ -52,8 +51,8 @@
       </div>
     </div>
   </div>
-</div>
-<div class="container">
+
+
   <div class="card mb-3" style="width: 100%;">
     <div class="row no-gutters">
       <div class="col-md-12">
@@ -68,6 +67,20 @@
       </div>
     </div>
   </div>
+
+  <div class="card mb-3" style="width: 100%;">
+    <div class="row no-gutters">
+      <div class="col-md-12">
+        <div class="card-body" style="width: 100%;">
+          <h4>Q&A</h4>
+            <% @lecture.comments.each do |c| %>
+              <p class="font-weight-bold mt-4"><%= c.name_student %></p>
+              <p><%= c.content %></p>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <% content_for :after_js do %>
@@ -77,3 +90,5 @@
 
   <%= javascript_pack_tag 'video' %>
 <% end %>
+
+    <div id="local-media"></div>
