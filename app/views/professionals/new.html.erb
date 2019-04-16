@@ -1,2 +1,16 @@
 <h1>Professionals#new</h1>
 <p>Find me in app/views/professionals/new.html.erb</p>
+<div class="container">
+  <%= simple_form_for [@user.professional] do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :profile_picture_url %>
+    <%= f.label :background_picture_url %>
+    <%= f.input :company %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :city %>
+    <%= f.input :linkedin_url %>
+    <%= f.submit "Create profile", class: "btn btn-primary ml-2" %>
+  <% end %>
+</div>
