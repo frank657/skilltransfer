@@ -4,7 +4,7 @@
     <div class="text-white">
       <h2><%= @user.first_name %> <%= @user.last_name %></h2>
       <h3><%= @professional.title %></h3>
-      <h4><%= @professional.company %></h4>
+      <p><%= @professional.company %></>
     </div>
   </div>
 </div>
@@ -27,7 +27,7 @@
       <!-- <h5>You don’t have any class rooms yet. Create your first one.</h5>
     </div>
     <!-- TAB 1 add profile to card -->
-      <div class="card mb-3 p-3" style="width: 100%; border-radius: 12px;">
+      <div class="card mb-3 p-3" style="width: 100%; border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
         <div class="grid-container">
           <div class="CompanyValue"><%= @professional.company %></div>
           <div class="CompanyLabel">Company</div>
@@ -44,16 +44,72 @@
           <div class="LinkedinValue"><%= @professional.linkedin_url %></div>
           <div class="DescriptionLabel">Description</div>
           <div class="DescriptionValue"><%= @professional.description %></div>
-          <div class="EditProfileButton"><a class="btn btn-primary" href="/lectures/5">Edit Profile</a></div>
+          <div class="EditProfileButton"><a class="btn btn-small" href="/lectures/5">Edit Profile</a></div>
         </div>
       </div>
     </div>
     <!-- TAB 2 REQUESTS -->
     <div id="requests" class="tab-pane fade">
       <div class="container">
+        <h4 class="mt-4 mb-5">Your latest requests</h4>
         <!-- REQUESTS CARD -->
         <% @lectures.each do |l| %>
           <% if !l.confirmed? %>
+            <!-- add grid for lecture request -->
+            <% cr = l.class_room %>
+            <% t = cr.teacher %>
+            <div class="card mb-3 p-3" style="width: 80%; border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+              <div class="grid-container-lecture-request">
+                <div class="image">
+                  <img src=<%= t.user.profile_picture_url %> class="avatar-medium" alt="profile picture">
+                </div>
+                <div class="teacher-info">
+                  <div class="teacherName">
+                    <h3 class="mt-2 mb-2 ml-4"><%= t.user.first_name %> <%= t.user.last_name %></h3>
+                    <h3 class="mt-2 mb-2 ml-4"><%= t.title %></h3>
+                  </div>
+                  <div class="schoolName">
+                    <i class="fas fa-graduation-cap mr-2 ml-4"></i><%= t.school %>
+                  </div>
+                </div>
+                <div class="lectureTitle">
+                  <h6 class="mt-2 mb-2 ml-4">Lecture title</h6>
+                  <h4 class="mt-2 mb-2 ml-4">Help us<%= l.name %></h4>
+                </div>
+                <div class="LectureMessage">
+                  <div class="mt-5">
+                    <h6 class="mt-2 mb-2 ml-4">Teacher's message to you:</h6>
+                    <hp class="mt-2 mb-2 ml-4">We would love to get an introduction to tech.<%= l.message %></p>
+                  </div>
+                </div>
+                <div class="classInterests">
+                  <h6 class="mt-2 mb-2 ml-4">My students' main interests:</h6>
+                  <div class="mt-2 mb-2 ml-4 d-flex justify-content-between align-items-end">
+                    <h4 class="card-text"><i class="fas fa-tag"></i>
+                      <% cr.interest_list.each do |e| %>
+                        <small class="text-white px-1 mx-1 rounded bg-info"><%= e %></small>
+                      <% end %>
+                    </h4>
+                  </div>
+                </div>
+                <div class="scheduledDay">
+                  <h6 class="mt-2 mb-2 ml-4">Scheduled for:</h6>
+                  <h4 class="mt-2 mb-2 ml-4"><%= l.start_time.strftime('%A, %B %e') %></h4>
+                </div>
+                <div class="scheduledTime">
+                  <p class="mt-2 mb-2 ml-4"><%= l.start_time.strftime('%l:%M %p') %> - <%= l.end_time.strftime('%l:%M %p') %></p>
+                </div>
+                <div class="button">
+                  <div>
+                    <%= simple_form_for(l) do |f| %>
+                      <%= f.submit :Confirm, class: 'btn btn-primary'  %>
+                    <% end %>
+                    <!-- <button class="btn btn-warning">Confirm</button> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end of grid -->
             <div class="card mb-3" style="width: 80%;">
               <div class="row no-gutters">
                 <div class="col-md-2">
@@ -85,7 +141,7 @@
                   </div>
                   <div>
                     <%= simple_form_for(l) do |f| %>
-                      <%= f.submit :Confirm, class: 'btn btn-warning'  %>
+                      <%= f.submit :Confirm, class: 'btn btn-primary'  %>
                     <% end %>
                     <!-- <button class="btn btn-warning">Confirm</button> -->
                   </div>

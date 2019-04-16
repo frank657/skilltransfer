@@ -1,0 +1,33 @@
+.grid-container-lecture-request {
+  display: grid;
+  grid-template-columns: 0.2fr 0.5fr 0.5fr;
+  grid-template-rows: 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr 0.1fr;
+  grid-template-areas: "image teacher-info teacher-info" ". lectureTitle lectureTitle" ". LectureMessage LectureMessage" ". classInterests classInterests" ". scheduledDay scheduledDay" ". scheduledTime scheduledTime" ". . button";
+}
+
+.image { grid-area: image; }
+
+.teacher-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.1fr 0.1fr;
+  grid-template-areas: "teacherName teacherName teacherName" "schoolName schoolName schoolName";
+  grid-area: teacher-info;
+}
+
+.teacherName { grid-area: teacherName; }
+
+.schoolName { grid-area: schoolName; }
+
+.lectureTitle { grid-area: lectureTitle; }
+
+.LectureMessage { grid-area: LectureMessage; }
+
+.classInterests { grid-area: classInterests; }
+
+.scheduledDay { grid-area: scheduledDay; }
+
+.scheduledTime { grid-area: scheduledTime; }
+
+.button { grid-area: button; }
+

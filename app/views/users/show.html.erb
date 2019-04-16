@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="banner-profile">
   <div class="container d-flex align-items-center">
     <img src=<%= current_user.profile_picture_url %> alt="Avatar" class="avatar-large mr-5">
@@ -11,17 +12,15 @@
 </div>
 <div class="container">
   <!-- TAB BARS -->
-
-<ul class="nav nav-pills mb-5">
-  <li class="nav-item">
-    <a class="nav-link active" data-toggle="tab" href="#classrooms">Classrooms</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#lectures">Lectures</a>
-  </li>
-</ul>
-
-<!--   <ul class="nav nav-tabs mb-3">
+  <ul class="nav nav-pills mb-5">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#classrooms">Classrooms</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#lectures">Lectures</a>
+    </li>
+  </ul>
+  <!--   <ul class="nav nav-tabs mb-3">
     <li class="li-tags" class="active"><a data-toggle="tab" href="#classrooms">Classrooms</a></li>
     <li class="li-tags"><a data-toggle="tab" href="#lectures">Lectures</a></li>
   </ul> -->
@@ -31,48 +30,43 @@
       <!-- <h5>You don’t have any class rooms yet. Create your first one.</h5> -->
       <div class="container">
         <!-- CLASS CARD -->
-
         <div class="row">
           <% @user.class_rooms.each do |cr| %>
-
-            <div class="col-12 col-md-4">
-              <div class="card mb-5" style="width: 18rem;">
-                <img src=<%= cr.picture_url %> class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"><%= cr.name %></h5>
-                    <p class="m-0 text-muted">Interests</p>
-                    <% cr.interest_list.each do |i| %>
-                      <small class="text-white px-1 mr-1 rounded bg-info"><%= i %></small>
-                    <% end %>
+            <!-- Add here -->
+            <div class="w3-container">
+              <div class="w3-card-4" style="width:500px">
+                <header class="w3-container w3-light-grey">
+                  <h3><%= cr.name %></h3>
+                </header>
+                <div class="w3-container">
+                  <img src=<%= cr.picture_url %>  alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+                  <p class="m-0 text-muted">Interests</p>
+                  <% cr.interest_list.each do |i| %>
+                    <small class="text-white px-1 mr-1 rounded bg-info"><%= i %></small>
+                  <% end %>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <% if cr.lectures.empty? %>
+                        No lecture scheduled
+                      <% else %>
+                        Next Lecture
+                        <p class="m-0"><%= cr.lectures.first.start_time.strftime('%b %e, %l:%M %p') %></p>
+                        <p class="m-0">with: <%= cr.lectures.first.professional.company %></p>
+                      <% end %>
+                    </li>
+                  </ul>
+                  <br>
                 </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">
-                    <% if cr.lectures.empty? %>
-                      No lecture scheduled
-                    <% else %>
-                      Next Lecture
-                      <p class="m-0"><%= cr.lectures.first.start_time.strftime('%b %e, %l:%M %p') %></p>
-                      <p class="m-0">with: <%= cr.lectures.first.professional.company %></p>
-                    <% end %>
-                  </li>
-                </ul>
-                <div class="card-body">
-                  <a><%= link_to 'Schedule a lecture', professionals_path, :class=>"card-link" %></a>
-                  <!-- <a href="#" class="card-link" data-toggle="modal" data-target="#myModal">Schedule a lecture</a> -->
-                </div>
+                <button class="btn btn-primary btn-sm"> <a><%= link_to 'Schedule a lecture', professionals_path, :class=>"card-link" %></a></button>
               </div>
             </div>
-
           <% end %>
         </div>
-
-
         <!-- Trigger the modal with a button -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create a new classroom</button>
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
           <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
@@ -90,7 +84,6 @@
                 <% end %>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -102,45 +95,42 @@
         <% @lectures.each do |l| %>
           <div class="card mb-3" style="width: 80%;">
             <div class="row no-gutters">
-
               <div class="col-md-2">
                 <div class="card-body">
                   <img src=<%= l.professional.user.profile_picture_url %> class="card-img rounded-circle" alt="profile picture">
                 </div>
               </div>
-
               <div class="col-md-10">
                 <h4 class="card-body card-title m-0 pb-0">Topic: </i><%= l.name %></h4>
-                <div class="card-body d-flex justify-content-between">
-                  <div>
-                    <h5 class="card-text"><%= l.professional.user.first_name %> <%= l.professional.user.last_name %></h5>
-                    <h6 class="card-text"><i class="fas fa-building mr-3"></i><%= l.professional.company %></h6>
-                    <p class="card-text text-muted"><%= l.professional.title %></p>
-                    <div class="d-flex justify-content-between align-items-end">
-                      <p class="card-text"><i class="fas fa-tag"></i>
-                        <% l.professional.expertise_list.each do |e| %>
-                          <small class="text-white px-1 mx-1 rounded bg-info"><%= e %></small>
-                        <% end %>
-                      </p>
-                    </div>
+              <div class="card-body d-flex justify-content-between">
+                <div>
+                  <h5 class="card-text"><%= l.professional.user.first_name %> <%= l.professional.user.last_name %></h5>
+                  <h6 class="card-text"><i class="fas fa-building mr-3"></i><%= l.professional.company %></h6>
+                  <p class="card-text text-muted"><%= l.professional.title %></p>
+                  <div class="d-flex justify-content-between align-items-end">
+                    <p class="card-text"><i class="fas fa-tag"></i>
+                      <% l.professional.expertise_list.each do |e| %>
+                        <small class="text-white px-1 mx-1 rounded bg-info"><%= e %></small>
+                      <% end %>
+                    </p>
                   </div>
-                  <div>
-                    <h5>Date</h5>
-                    <p class="m-0"><%= l.start_time.strftime('%A, %B %e') %></p>
-                    <p class="m-0"><%= l.start_time.strftime('%l:%M %p') %> - <%= l.end_time.strftime('%l:%M %p') %></p>
-
-                    <% if l.confirmed? %>
-                      <a><%= link_to 'View lecture', lecture_path(l), :class=>"btn btn-primary" %></a>
-                    <% else %>
-                      <p class="btn btn-warning">Pending</p>
-                    <% end %>
-                  </div>
+                </div>
+                <div>
+                  <h5>Date</h5>
+                  <p class="m-0"><%= l.start_time.strftime('%A, %B %e') %></p>
+                  <p class="m-0"><%= l.start_time.strftime('%l:%M %p') %> - <%= l.end_time.strftime('%l:%M %p') %></p>
+                  <% if l.confirmed? %>
+                    <a><%= link_to 'View lecture', lecture_path(l), :class=>"btn btn-primary" %></a>
+                  <% else %>
+                    <p class="btn btn-warning">Pending</p>
+                  <% end %>
                 </div>
               </div>
             </div>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
+</div>
 </div>
