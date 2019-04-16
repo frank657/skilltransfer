@@ -30,7 +30,7 @@ justify-content: right;
 
 .banner-second {
   background-color: #FFFFFF;
-  height: 400px;
+  height: 250px;
 }
 
 .banner-blue {
@@ -286,6 +286,17 @@ ul.inline-list-professional {
   margin-bottom: 135px;
   padding: 0px;
 }
+
+ul.inline-list-professional-second {
+  position: absolute;
+  margin-top: 50px;
+  padding: 0px;
+}
+
+.inline-list-professional-second li {
+  display: inline-block;
+}
+
 
 ul.inline-list-teacher {
   position: absolute;
@@ -616,7 +627,7 @@ ul.commerical-list {
 }
 
 .container-icon {
-  background-color: #1B2AAA;
+  background-color: #7098FF;
   display: flex;
   align-items: center;
   margin-bottom: 30px;
