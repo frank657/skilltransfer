@@ -5,7 +5,7 @@ class ProfessionalsController < ApplicationController
     @professionals = Professional.all
     @professionals = Professional.tagged_with(params["query"]) if params["query"].present?
     @professionals = Professional.tagged_with(params["tag"]) if params["tag"].present?
-    # @lecture = Lecture.new
+    @lecture = Lecture.new
   end
 
 
