@@ -76,151 +76,251 @@
     <!-- ======= -->
   </div>
 </div>
-<div class="infobox-landing">
-  <h2 class="center-landing">Make a difference</h2>
+<div class="container-main">
+  <p class="container-main-p">Our platform connects skilled professionals with high schools to share their knowledge via video conferences.</p>
 </div>
 </div>
-<div class="landingpage">
+<div class="container-landing">
+  <div class="d-md-flex flex-md-equal w-70">
+    <div class="bg-white pb-4 m-4 pt-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden w-50" style="border-radius: 21px; box-shadow: 0 9px 40px 0 rgba(0, 0, 0, 0.1);">
+      <%= image_tag "teacher.png", alt: "teacher_img", :class => "image-landing" %>
+      <div>
+        <h2 class="display-5">For high school teachers</h2>
+        <p class="lead mt-3">Enhance your classroom teaching</p>
+      </div>
+      <%= link_to "Learn more", teacher_info_path, class: "btn btn-primary mb-4"%>
+    </div>
+    <div class="bg-white pb-4 m-4 pt-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden w-50" style="border-radius: 21px; box-shadow: 0 9px 40px 0 rgba(0, 0, 0, 0.1);">
+      <%= image_tag "working-professional.png", alt: "working-professional.png", :class => "image-landing" %>
+      <div>
+        <h2 class="display-5">For working professionals</h2>
+        <p class="lead mt-3">Share your work experience with students</p>
+        <div>
+          <%= link_to "Learn more", professional_info_path, class: "btn btn-primary mb-4"%>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-white position-relative overflow-hidden mt-4 p-1 p-md-5 m-md-3 text-center bg-light" style="border-radius: 21px; box-shadow: 0 9px 40px 0 rgba(0, 0, 0, 0.1);">
+    <div class="p-lg-5 mx-auto my-5">
+      <p class="container-main-p">Help future generations make better career decisions</p>
+    </div>
+    <div class="product-device box-shadow d-none d-md-block"></div>
+    <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+  </div>
+</div>
+<!-- <div class="landingpage">
   <div class="card-product-landing d-flex justify-content-center">
     <%= image_tag"landing.png", alt: "professional"%>
     <div class="card-product-landing-infos">
     </div>
+  </div> -->
+<!-- ============== -->
+<div class="banner-second">
+  <div class="commerical-box">
+    <ul class="commerical-list">
+      <li class="commerical-icon">
+        <i class="fas fa-desktop"></i>
+        <p class="commerical-word">Instant online lectures</p>
+      </li>
+      <li class="commerical-icon">
+        <i class="fas fa-globe-americas"></i>
+        <p class="commerical-word">Networks all over the globe</p>
+      </li>
+      <li class="commerical-icon">
+        <i class="far fa-comments"></i>
+        <p class="commerical-word">Q&A sessions after the lecture</p>
+      </li>
+    </ul>
   </div>
-  <!-- ============== -->
-  <div class="banner-second">
-    <div class="commerical-box">
-      <ul class="commerical-list">
-        <li class="commerical-icon">
-          <i class="fas fa-desktop"></i>
-          <p class="commerical-word">Instant online lectures</p>
-        </li>
-        <li class="commerical-icon">
-          <i class="fas fa-globe-americas"></i>
-          <p class="commerical-word">Networks all over the globe</p>
-        </li>
-        <li class="commerical-icon">
-          <i class="far fa-comments"></i>
-          <p class="commerical-word">Q&A sessions after the lecture</p>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <!--  ============== -->
-  <!--  <div class="infobox-landing">
+</div>
+<!--  ============== -->
+<!--  <div class="infobox-landing">
     <h2 class="center-landing">Teacher's testmonial</h2>
   </div> -->
-  <!--  ============== -->
-  <div class="notification-teachers">
-    <div class="testimonials">
-      <%= image_tag "kelvin.png", alt: "Avatar", :class => "avatar-large landing"%>
-    </div>
-    <div class="testimonials-name">
-      <h3><strong>Kelvin L.</strong></h3>
-      <p><strong>Biology Teacher</strong></p>
-      <p>Flower Bridge High School</p>
-    </div>
-    <div class="testimonials-content">
-      <p>"Skill Transfer has been instrumental in getting my students to see the big picture of how the most minute details of what we learn in lecture are actually connected to how their professional careers will pan out 20, 30 even 40 years after they leave my classroom."</p>
-    </div>
+<!-- ========================== -->
+<div class="card-product-page">
+  <%= image_tag"teacher.jpeg", alt: "teacher"%>
+  <div class="card-product-page-infos">
+    <h2>Help your students
+      seek better career options</h2>
+    <p>Help students to connect with professionals to discover the world of work, such as industry requirements, opportunities, development paths and limitations.</p>
   </div>
-  <!--  ============== -->
-  <div class="infobox-landing">
-    <h2 class="center-landing">Our partner high schools</h2>
+</div>
+<!-- ========================== -->
+<div class="notification-teachers">
+  <div class="testimonials">
+    <%= image_tag "kelvin.png", alt: "Avatar", :class => "avatar-large landing"%>
   </div>
-  <!--  ============== -->
-  <div class="banner-second">
-    <div class="imagbox">
-      <ul class="inline-list-teacher">
-        <li class= "img-schools">
-          <%= image_tag "highschool1.png", alt: "Highschool_logo" %>
-        </li>
-        <li class= "img-schools">
-          <%= image_tag "highschool5.png", alt: "Highschool_logo"%>
-        </li>
-        <li class= "img-schools">
-          <%= image_tag "highschool6.png", alt: "Highschool_logo"%>
-        </li>
-        <li class= "img-schools">
-          <%= image_tag "highschool7.png", alt: "Highschool_logo"%>
-        </li>
-        <li class= "img-schools">
-          <%= image_tag "highschool8.png", alt: "Highschool_logo"%>
-        </li>
-      </ul>
-    </div>
+  <div class="testimonials-name">
+    <h3><strong>Kelvin L.</strong></h3>
+    <p><strong>Biology Teacher</strong></p>
+    <p>Flower Bridge High School</p>
   </div>
-  <!--  ============== -->
-  <!--   <div class="infobox-landing">
+  <div class="testimonials-content">
+    <p>"Skill Transfer has been instrumental in getting my students to see the big picture of how the most minute details of what we learn in lecture are actually connected to how their professional careers will pan out 20, 30 even 40 years after they leave my classroom."</p>
+  </div>
+</div>
+<!--  ============== -->
+<div class="infobox-landing">
+  <h2 class="center-landing">Our partner high schools</h2>
+</div>
+<!--  ============== -->
+<div class="banner-second">
+  <div class="imagbox">
+    <ul class="inline-list-teacher">
+      <li class= "img-schools">
+        <%= image_tag "highschool1.png", alt: "Highschool_logo" %>
+      </li>
+      <li class= "img-schools">
+        <%= image_tag "highschool5.png", alt: "Highschool_logo"%>
+      </li>
+      <li class= "img-schools">
+        <%= image_tag "highschool6.png", alt: "Highschool_logo"%>
+      </li>
+      <li class= "img-schools">
+        <%= image_tag "highschool7.png", alt: "Highschool_logo"%>
+      </li>
+      <li class= "img-schools">
+        <%= image_tag "highschool8.png", alt: "Highschool_logo"%>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- ========================== -->
+<div class="card-product-page">
+  <%= image_tag"professionals.png", alt: "professional"%>
+  <div class="card-product-page-infos">
+    <h2>Share your experiences, change others' lifes</h2>
+    <p>Obtain personal satisfaction from making a difference to the career development of the others. Enhance your people skills such as leadership, interpersonal skills and communication.</p>
+  </div>
+</div>
+<!-- ========================== -->
+<!--  ============== -->
+<!--   <div class="infobox-landing">
     <h2 class="center-landing">Professional's testmonial</h2>
   </div>
  -->  <!--  ============== -->
-  <div class="notification-professionals">
-    <div class="testimonials">
-      <%= image_tag "jeff.png", alt: "Avatar", :class => "avatar-large landing"%>
-    </div>
-    <div class="testimonials-name">
-      <h3><strong>Jeffery W.</strong></h3>
-      <p><strong>Chief Technology Officer</strong></p>
-      <p>Stark Industries</p>
-    </div>
-    <div class="testimonials-content">
-      <p>"Best service ever! Helped me connect to the young talents in high school who have very strong potentials in their careers. I am also very glad to help them discover their future. JIA YOU everyone!"</p>
-    </div>
+<div class="notification-professionals">
+  <div class="testimonials">
+    <%= image_tag "jeff.png", alt: "Avatar", :class => "avatar-large landing"%>
   </div>
-  <!--  ============== -->
-  <div class="infobox-landing">
-    <h2 class="center-landing">Our partner companies</h2>
+  <div class="testimonials-name">
+    <h3><strong>Jeffery W.</strong></h3>
+    <p><strong>Chief Technology Officer</strong></p>
+    <p>Stark Industries</p>
   </div>
-  <!-- ============== -->
-  <div class="banner-third">
-    <div class="imagbox">
-      <ul class="inline-list-professional-second">
-        <li class= "img-companies-big">
-          <%= image_tag "omg.png", alt: "Company_logo" %>
-        </li>
-        <li class= "img-companies">
-          <%= image_tag "pear.png", alt: "Company_logo"%>
-        </li>
-        <li class= "img-companies">
-          <%= image_tag "enterprise.png", alt: "Company_logo"%>
-        </li>
-        <li class= "img-companies">
-          <%= image_tag "unbrella.png", alt: "Company_logo"%>
-        </li>
-        <li class= "img-companies-medium">
-          <%= image_tag "cyberdyne.png", alt: "Company_logo"%>
-        </li>
-        <li class= "img-companies-long">
-          <%= image_tag "stark.png", alt: "Company_logo"%>
-        </li>
-      </ul>
-    </div>
+  <div class="testimonials-content">
+    <p>"Best service ever! Helped me connect to the young talents in high school who have very strong potentials in their careers. I am also very glad to help them discover their future. JIA YOU everyone!"</p>
   </div>
-  <!-- ============== -->
-  <div class="container-icon">
-    <h2>Connect with us</h2>
-    <ul class="icon-list">
-      <li><a class="link-icon" href="#" target="_blank"><i class="fab fa-twitter-square"></i></a>
-        <!--  <div<% #https://twitter.com/Skilltransfer1 %>></div> -->
+</div>
+<!--  ============== -->
+<div class="infobox-landing">
+  <h2 class="center-landing">Our partner companies</h2>
+</div>
+<!-- ============== -->
+<div class="banner-third">
+  <div class="imagbox">
+    <ul class="inline-list-professional-second">
+      <li class= "img-companies-big">
+        <%= image_tag "omg.png", alt: "Company_logo" %>
       </li>
-      <li><a class="link-icon" href="https://www.facebook.com/le.wagon.127" target="_blank"><i class="fab fa-facebook"></i></a>
+      <li class= "img-companies">
+        <%= image_tag "pear.png", alt: "Company_logo"%>
       </li>
-      <li><a class="link-icon" href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <li class= "img-companies">
+        <%= image_tag "enterprise.png", alt: "Company_logo"%>
       </li>
-      <li><a class="link-icon" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+      <li class= "img-companies">
+        <%= image_tag "unbrella.png", alt: "Company_logo"%>
       </li>
-      <li><a class="link-icon" href="#" target="_blank"><i class="fab fa-youtube-square"></i></i></a>
+      <li class= "img-companies-medium">
+        <%= image_tag "cyberdyne.png", alt: "Company_logo"%>
+      </li>
+      <li class= "img-companies-long">
+        <%= image_tag "stark.png", alt: "Company_logo"%>
+      </li>
     </ul>
   </div>
-  <!--  <div class="notification-professionals">
+</div>
+<!-- ============== -->
+<div class="container-icon">
+  <h2>Connect with us</h2>
+  <ul class="icon-list">
+    <li><a class="link-icon" href="#" target="_blank"><i class="fab fa-twitter-square"></i></a>
+      <!--  <p>https://twitter.com/Skilltransfer1</p> -->
+    </li>
+    <li><a class="link-icon" href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+      <!-- <p>https://www.facebook.com/le.wagon.127</p> -->
+    </li>
+    <li><a class="link-icon" href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </li>
+    <li><a class="link-icon" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+    </li>
+    <li><a class="link-icon" href="#" target="_blank"><i class="fab fa-youtube-square"></i></i></a>
+  </ul>
+</div>
+<!--  <div class="notification-professionals">
       <div class="testimonials">
       </div>
       <div class="testimonials-name">
         <h3><strong>Contact with us</strong></h3>
       </div>
     </div> -->
-  <!--  ============== -->
-  <div class="banner-white">
+<!--  ============== -->
+<div class="banner-white">
+  <div class="card-product-landing-logo">
+    <div class="card-product-landing-infos-logo landing-page-footer-main d-flex justify-content-start">
+      <%= image_tag "skilltransfer.png", alt: "Skilltransfer_logo", :class => "logo3" %>
+      <div class="footer-column d-flex flex-column">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">General</a>
+        <%= link_to "Homepage", root_path , class: "nav-link"%>
+        <% if user_signed_in? %>
+          <%= link_to "My profile", user_path(current_user), class: "nav-link enable" %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
+        <% end %>
+      </div>
+      <div class="footer-column d-flex flex-column">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Browse more</a>
+        <%= link_to "For professionals", professional_info_path , class: "nav-link"%>
+        <!--  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">For Teachers</a> -->
+        <%= link_to "For teachers", teacher_info_path , class: "nav-link"%>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="banner-gray"> -->
+<!--  <div class="text">
+      ul class="nav justify-content-end">
+        <li>
+          <div class="nav-link" tabindex="-1" aria-disabled="true">
+            <%#= link_to "For Teachers", teacher_info_path %>
+          </div>
+        </li>
+        <li>
+          <%#= link_to "For Professionals", professional_info_path, class: "nav-link" %>
+        </li>
+        <-- <li>
+          <%# if user_signed_in? %>
+            <%#= link_to "My Profile", user_path(current_user), class: "nav-link enable" %>
+          <%# else %>
+            <%#= link_to "Sign in", new_user_session_path, class: "btn-ghost" %>
+          <%# end %>
+        </li>
+      </ul>
+
+     </div> -->
+<!-- <div class="text-left">
+      <h1 class="word-white">We connect young talents with the professional industries</h1>
+    </div> -->
+<!--   <a class="btn-flat" href="#">For Teachers</a>
+      <a class="btn-flat" href="#">For Professionals</a>
+     </div> -->
+<!-- </div>
+</div> -->
+<!-- <div class="container"> -->
+<!-- <footer class="footer">
     <div class="card-product-landing-logo">
       <div class="card-product-landing-infos-logo landing-page-footer-main d-flex justify-content-start">
         <%= image_tag "skilltransfer.png", alt: "Skilltransfer_logo", :class => "logo3" %>
@@ -236,9 +336,14 @@
         <div class="footer-column d-flex flex-column">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Browse more</a>
           <%= link_to "For professionals", professional_info_path , class: "nav-link"%>
-          <!--  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">For Teachers</a> -->
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">For Teachers</a>
           <%= link_to "For teachers", teacher_info_path , class: "nav-link"%>
         </div>
       </div>
     </div>
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+    </div>
   </div>
+</footer> -->

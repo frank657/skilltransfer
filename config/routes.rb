@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'signup_form/teacher'
 
   devise_for :users
+
   resources :users, only: [:show]
   get '/professional_dashboard', to: 'users#professional_dashboard', as: 'p_dashboard'
   root to: 'pages#landing'

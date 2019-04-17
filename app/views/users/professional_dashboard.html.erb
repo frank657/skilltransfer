@@ -4,7 +4,6 @@
     <div class="text-white">
       <h2><%= @user.first_name %> <%= @user.last_name %></h2>
       <h3><%= @professional.title %></h3>
-      <p><%= @user.email %></p>
       <h4><%= @professional.company %></h4>
     </div>
   </div>
@@ -13,7 +12,7 @@
   <!-- TAB BARS -->
   <ul class="nav nav-pills mb-5">
     <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#profile">Profile</a>
+      <a class="nav-link active" data-toggle="tab" href="#profile">My Profile</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#requests">Requests</a>
@@ -22,30 +21,44 @@
       <a class="nav-link" data-toggle="tab" href="#lectures">Upcoming lectures</a>
     </li>
   </ul>
-
   <div class="tab-content">
     <!-- TAB 1 CLASSROOMS -->
-    <div id="profile" class="tab-pane fade in active">
-      <!-- <h5>You don’t have any class rooms yet. Create your first one.</h5> -->
-      <div class="container">
-        <!-- PROFILE SECTION -->
-        <h4><%= @user.first_name %> <%= @user.last_name %></h4>
-        <h2><%= @professional.company %></h2>
-        <p><%= @professional.title %></p>
+    <div id="profile" class="tab-pane active show">
+      <!-- <h5>You don’t have any class rooms yet. Create your first one.</h5>
+    </div>
+
+
+
+    <!-- TAB 1 add profile to card -->
+      <div class="card mb-3 p-3" style="width: 100%; border-radius: 12px;">
+        <div class="grid-container">
+          <div class="CompanyValue"><%= @professional.company %></div>
+          <div class="CompanyLabel">Company</div>
+          <div class="FullName">
+            <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+          </div>
+          <div class="JobTitleLabel">Job Title</div>
+          <div class="JobTitleValue"><%= @professional.title %></div>
+          <div class="CityLabel">City</div>
+          <div class="CityValue"><%= @professional.city %></div>
+          <div class="EmailLabel">Email</div>
+          <div class="EmailValue"><%= @user.email %></div>
+          <div class="LinkedinLabel">LinkedIn</div>
+          <div class="LinkedinValue"><%= @professional.linkedin_url %></div>
+          <div class="DescriptionLabel">Description</div>
+          <div class="DescriptionValue"><%= @professional.description %></div>
+          <div class="EditProfileButton"><a class="btn btn-primary" href="/lectures/5">Edit Profile</a></div>
+        </div>
       </div>
     </div>
     <!-- TAB 2 REQUESTS -->
     <div id="requests" class="tab-pane fade">
       <div class="container">
         <!-- REQUESTS CARD -->
-
         <% @lectures.each do |l| %>
-
           <% if !l.confirmed? %>
-
             <div class="card mb-3" style="width: 80%;">
               <div class="row no-gutters">
-
                 <div class="col-md-2">
                   <div class="card-body">
                     <% cr = l.class_room %>
@@ -53,95 +66,84 @@
                     <img src=<%= t.user.profile_picture_url %> class="card-img rounded-circle" alt="profile picture">
                   </div>
                 </div>
-
                 <div class="col-md-10">
                   <h4 class="card-body card-title m-0 pb-0">From: </i><%= t.user.first_name %> <%= t.user.last_name %></h4>
-                  <div class="card-body d-flex justify-content-between">
-                    <div>
-                      <h6 class="card-text"><i class="fas fa-graduation-cap mr-2"></i><%= t.school %></h6>
-                      <h6 class="card-text"><%= l.start_time.strftime('%A, %B %e') %></h6>
-                      <p class="card-text text-muted"><%= l.start_time.strftime('%l:%M %p') %> - <%= l.end_time.strftime('%l:%M %p') %></p>
-
-                      <h6 class="card-text m-0">Class interests:</h6>
-                      <div class="d-flex justify-content-between align-items-end">
-                        <p class="card-text"><i class="fas fa-tag"></i>
-                          <% cr.interest_list.each do |e| %>
-                            <small class="text-white px-1 mx-1 rounded bg-info"><%= e %></small>
-                          <% end %>
-                        </p>
-                      </div>
-                      <div class="mt-5">
-                        <h6>Message:</h6>
-                        <p><%= l.message %></p>
-                      </div>
-                    </div>
-                    <div>
-
-
-                      <%= simple_form_for(l) do |f| %>
-                        <%= f.submit :Confirm, class: 'btn btn-warning'  %>
+                <h4 class="card-body card-title m-0 pb-0">Lecture title: </i><%= l.name %></h4>
+              <div class="card-body d-flex justify-content-between">
+                <div>
+                  <h6 class="card-text"><i class="fas fa-graduation-cap mr-2"></i><%= t.school %></h6>
+                  <h6 class="card-text"><%= l.start_time.strftime('%A, %B %e') %></h6>
+                  <p class="card-text text-muted"><%= l.start_time.strftime('%l:%M %p') %> - <%= l.end_time.strftime('%l:%M %p') %></p>
+                  <h6 class="card-text m-0">Class interests:</h6>
+                  <div class="d-flex justify-content-between align-items-end">
+                    <p class="card-text"><i class="fas fa-tag"></i>
+                      <% cr.interest_list.each do |e| %>
+                        <small class="text-white px-1 mx-1 rounded bg-info"><%= e %></small>
                       <% end %>
-
-                      <!-- <button class="btn btn-warning">Confirm</button> -->
-                    </div>
+                    </p>
                   </div>
+                  <div class="mt-5">
+                    <h6>Message:</h6>
+                    <p><%= l.message %></p>
+                  </div>
+                </div>
+                <div>
+                  <%= simple_form_for(l) do |f| %>
+                    <%= f.submit :Confirm, class: 'btn btn-warning'  %>
+                  <% end %>
+                  <!-- <button class="btn btn-warning">Confirm</button> -->
                 </div>
               </div>
             </div>
-
-          <% end %>
-        <% end %>
-
-      </div>
-    </div>
-    <!-- TAB 3 LECTURES -->
-    <div id="lectures" class="tab-pane fade">
-      <!--       <h3>Your upcoming lectures</h3>
-      <p>You don't have any upcoming lectures yet.</p> -->
-      <div class="container">
-        <!-- REQUESTS CARD -->
-                <% @lectures.each do |l| %>
-
-          <% if l.confirmed? %>
-
-            <div class="card mb-3" style="width: 80%;">
-              <div class="row no-gutters">
-
-                <div class="col-md-3">
-                  <div class="card-body">
-                    <% cr = l.class_room %>
-                    <% t = cr.teacher %>
-                    <img src=<%= cr.picture_url %> class="card-img" alt="profile picture">
-                  </div>
-                </div>
-
-                <div class="col-md-9">
-                  <h4 class="card-body card-title m-0 pb-0">School: </i><%= t.school %></h4>
-                  <div class="card-body d-flex justify-content-between">
-                    <div>
-                      <h6 class="card-text"><%= l.start_time.strftime('%A, %B %e') %></h6>
-                      <p class="card-text text-muted"><%= l.start_time.strftime('%l:%M %p') %> - <%= l.end_time.strftime('%l:%M %p') %></p>
-
-                      <h6 class="card-text m-0">Class interests:</h6>
-                      <div class="d-flex justify-content-between align-items-end">
-                        <p class="card-text"><i class="fas fa-tag"></i>
-                          <% cr.interest_list.each do |e| %>
-                            <small class="text-white px-1 mx-1 rounded bg-info"><%= e %></small>
-                          <% end %>
-                        </p>
-                      </div>
-                    </div>
-                    <div>
-                      <a><%= link_to 'View lecture', lecture_path(l), :class=>"btn btn-primary" %></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          <% end %>
-        <% end %>
-      </div>
-    </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
+</div>
+<!-- TAB 3 LECTURES -->
+<div id="lectures" class="tab-pane fade">
+  <!--       <h3>Your upcoming lectures</h3>
+      <p>You don't have any upcoming lectures yet.</p> -->
+  <div class="container">
+    <!-- REQUESTS CARD -->
+    <% @lectures.each do |l| %>
+      <% if l.confirmed? %>
+        <div class="card mb-3" style="width: 80%;">
+          <div class="row no-gutters">
+            <div class="col-md-3">
+              <div class="card-body">
+                <% cr = l.class_room %>
+                <% t = cr.teacher %>
+                <img src=<%= cr.picture_url %> class="card-img" alt="profile picture">
+              </div>
+            </div>
+            <div class="col-md-9">
+              <h4 class="card-body card-title m-0 pb-0">School: </i><%= t.school %></h4>
+            <h4 class="card-body card-title m-0 pb-0">Lecture title: </i><%= l.name %></h4>
+          <div class="card-body d-flex justify-content-between">
+            <div>
+              <h6 class="card-text"><%= l.start_time.strftime('%A, %B %e') %></h6>
+              <p class="card-text text-muted"><%= l.start_time.strftime('%l:%M %p') %> - <%= l.end_time.strftime('%l:%M %p') %></p>
+              <h6 class="card-text m-0">Class interests:</h6>
+              <div class="d-flex justify-content-between align-items-end">
+                <p class="card-text"><i class="fas fa-tag"></i>
+                  <% cr.interest_list.each do |e| %>
+                    <small class="text-white px-1 mx-1 rounded bg-info"><%= e %></small>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+            <div>
+              <a><%= link_to 'View lecture', lecture_path(l), :class=>"btn btn-primary" %></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+</div>
+</div>
+</div>
 </div>

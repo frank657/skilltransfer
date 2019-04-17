@@ -1,31 +1,74 @@
 h1 {
   font-family: Montserrat;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
 h2 {
   font-family: Montserrat;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
 h3 {
   font-family: Montserrat;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-size: 22px;
+   margin-top: 10px;
 }
 
 
 h4 {
   font-family: Montserrat;
   margin-bottom: 10px;
+  font-size: 20px;
+//   margin-top: 10px;
 }
 
 
 p {
   font-family: Roboto;
   font-weight: 100;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 
+.nav-link {
+  font-size: 18px;
+}
 
+.grid-container {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  grid-template-rows: 0.8fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 1fr;
+  grid-template-areas: "FullName FullName" "CompanyLabel CompanyValue" "JobTitleLabel JobTitleValue" "CityLabel CityValue" "EmailLabel EmailValue" "LinkedinLabel LinkedinValue" "DescriptionLabel DescriptionValue" "EditProfileButton .";
+}
 
+.CompanyValue { grid-area: CompanyValue; }
+
+.CompanyLabel { grid-area: CompanyLabel; }
+
+.FullName { grid-area: FullName; }
+
+.JobTitleLabel { grid-area: JobTitleLabel; }
+
+.JobTitleValue { grid-area: JobTitleValue; }
+
+.CityLabel { grid-area: CityLabel; }
+
+.CityValue { grid-area: CityValue; }
+
+.EmailLabel { grid-area: EmailLabel; }
+
+.EmailValue { grid-area: EmailValue; }
+
+.LinkedinLabel { grid-area: LinkedinLabel; }
+
+.LinkedinValue { grid-area: LinkedinValue; }
+
+.DescriptionLabel { grid-area: DescriptionLabel; }
+
+.DescriptionValue { grid-area: DescriptionValue; }
+
+.EditProfileButton { grid-area: EditProfileButton; }
