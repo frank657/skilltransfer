@@ -11,7 +11,7 @@
 
     <!-- </div> -->
     <!-- <div id="controls">
-      <div id="room-controls" data-room-name=<%= @lecture.name %> > -->
+      <div id="room-controls" data-room-name=<%#= @lecture.name %> > -->
         <!-- <p class="instructions">Room Name:</p> -->
         <!-- <input id="room-name" type="text" placeholder="Enter a room name" /> -->
         <!-- <button id="button-preview">Preview My Camera</button> -->
@@ -52,14 +52,14 @@
     </div>
   </div>
 
-
   <div class="card mb-3" style="width: 100%;">
     <div class="row no-gutters">
       <div class="col-md-12">
         <div class="card-body" style="width: 100%;">
           <div class="form-wrapper" style="width: 100%; margin: 0 auto;">
-            <%= simple_form_for :search, method: "get" do |f| %>
-              <%= f.input :Comment, :as => :text %>
+            <%= simple_form_for [@lecture, @comment] do |f| %>
+              <%= f.input :name_student %>
+              <%= f.input :content, as: :text, label: :Question %>
               <%= f.submit :Post, class: "btn btn-primary", id: "btn-link" %>
             <% end %>
           </div>

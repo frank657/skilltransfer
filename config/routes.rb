@@ -26,6 +26,8 @@ Rails.application.routes.draw do
     resources :class_rooms, only: [:new, :create]
   end
 
-  resources :lectures, only: [:show, :edit, :update]
+  resources :lectures, only: [:show, :edit, :update] do
+    resources :comments, only: [:new, :create]
+  end
   resources :videotokens, only: [:create]
 end
