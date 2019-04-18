@@ -7,7 +7,7 @@
   <div style="width: 100%;">
     <!-- <div id="preview"> -->
       <!-- <p class="instructions">Hello Beautiful</p> -->
-    <div id="remote-media"></div>
+    <!-- <div id="remote-media"></div> -->
 
     <!-- </div> -->
     <!-- <div id="controls">
@@ -45,7 +45,7 @@
           <div class="d-flex justify-content-between align-items-end">
             <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#linkToYoutube">Start lecture</button> -->
             <button class="video-button btn btn-primary" id="button-join" data-room-name=<%= @lecture.name %> >Start lecture</button>
-            <button class="video-button btn btn-primary" id="button-leave">Exit lecture</button>
+            <!-- <button class="video-button btn btn-primary" id="button-leave">Exit lecture</button> -->
           </div>
         </div>
       </div>
@@ -91,4 +91,8 @@
   <%= javascript_pack_tag 'video' %>
 <% end %>
 
-    <div id="local-media"></div>
+<section class="modal">
+  <div id="remote-media"></div>
+  <div id="local-media"></div>
+  <button class="close-video btn btn-outline-light">Finish lecture</button>
+</section>
