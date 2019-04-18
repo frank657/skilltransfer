@@ -26,7 +26,8 @@ Rails.ajax({
       // roomName = "Skilltransfer video lecture"
       const room = document.querySelector('#button-join').dataset.roomName;
       console.log(`The room name is ${room}`);
-      console.log(`${identity} joined the room`)
+      console.log(`${identity} joined the room`);
+      document.getElementById('comment-form').style.display = 'none';
       roomName = room
       if (roomName) {
         // log("Joining chat '" + roomName + "'...");
@@ -48,6 +49,7 @@ Rails.ajax({
     document.querySelector('.close-video').onclick = function () {
       // log('Leaving room...');
       activeRoom.disconnect();
+      document.getElementById('comment-form').style.display = 'block';
     };
   }
 });

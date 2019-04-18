@@ -1,10 +1,12 @@
 <!-- Find professionals header -->
-<div class="banner-short" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1528901166007-3784c7dd3653?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
+<div class="banner-short d-flex flex-column" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1528901166007-3784c7dd3653?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
+  <h1>Lecture</h1>
+  <p class="text-white px-1 rounded bg-info"><strong>confirmed</strong></p>
   <h2 class="card-title"><%= @lecture.name %></h2>
 </div>
 
 <!-- VIDEO -->
-  <div style="width: 100%;">
+  <!-- <div style="width: 100%;"> -->
     <!-- <div id="preview"> -->
       <!-- <p class="instructions">Hello Beautiful</p> -->
     <!-- <div id="remote-media"></div> -->
@@ -20,7 +22,7 @@
       <!-- </div> -->
       <!-- <div id="log"></div> -->
     <!-- </div> -->
-  </div>
+  <!-- </div> -->
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
@@ -28,43 +30,50 @@
 
   <div class="container">
   <!-- LECTURE CONTENT -->
-  <div class="card mb-3" style="width: 100%;">
-    <div class="row no-gutters">
-      <div class="col-md-3">
-        <div class="card-body" style="width: 100%;">
-          <img style="height: 220px !important; width: 220px !important" src="https://images.unsplash.com/photo-1471970471555-19d4b113e9ed?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80" class="card-img rounded-circle " alt="profile picture"!important >
-        </div>
-      </div>
-      <div class="col-md-9">
-        <div class="card-body">
-          <h4>Upcoming Lesson</h4>
-          <small class="text-white px-1 mb-5 rounded bg-info">confirmed</small>
-          <h5 class="card-text mt-3">
-            <i class="fas fa-clock mr-3 mb-3"></i><strong> Scheduled for:</strong> <%= @lecture.start_time.strftime('%I:%M %p' ' on ' '%A, %B %e') %></h5>
-          <!-- <p class="card-title"><%= @lecture.message %></p> -->
-          <div class="d-flex justify-content-between align-items-end">
-            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#linkToYoutube">Start lecture</button> -->
-            <button class="video-button btn btn-primary" id="button-join" data-room-name=<%= @lecture.name %> >Start lecture</button>
-            <!-- <button class="video-button btn btn-primary" id="button-leave">Exit lecture</button> -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <% p = @lecture.professional %>
+  <% cr = @lecture.class_room %>
+  <% t = @lecture.class_room.teacher %>
 
-  <div class="card mb-3" style="width: 100%;">
-    <div class="row no-gutters">
-      <div class="col-md-12">
-        <div class="card-body" style="width: 100%;">
-          <div class="form-wrapper" style="width: 100%; margin: 0 auto;">
-            <%= simple_form_for [@lecture, @comment] do |f| %>
-              <%= f.input :name_student %>
-              <%= f.input :content, as: :text, label: :Question %>
-              <%= f.submit :Post, class: "btn btn-primary", id: "btn-link" %>
+  <div class="card mb-3 card-body" style="width: 100%;">
+    <div class="row">
+      <div class="col-6">
+        <h3 class="mb-4">Scheduled for:</h3>
+        <h5><%= @lecture.start_time.strftime('%A, %B %e') %></h5>
+        <h5><%= @lecture.start_time.strftime('%I:%M %p') %> - <%= @lecture.end_time.strftime('%I:%M %p') %></h5>
+        <button class="video-button btn btn-primary mt-4" id="button-join" data-room-name=<%= @lecture.name %> ><i class="fas fa-video"></i> Start lecture</button>
+      </div>
+
+      <% if current_user.professionals.present? %>
+        <div class="col-6">
+          <h3 class="mb-4">School:</h3>
+          <h5><strong><%= cr.teacher.school %></strong></h5>
+          <h6><%= cr.name %></h6>
+          <h6 class="mt-4">Interests:</h6>
+          <div class="d-flex">
+            <% cr.interest_list.each do |i| %>
+              <h6 class="mr-2 text-white px-2 py-1" style="border-radius: 15px; background-color:#58C2F1;"><%= i %></h6>
             <% end %>
           </div>
         </div>
-      </div>
+      <% else %>
+        <div class="col-6">
+          <h3 class="mb-4">Professional</h3>
+          <div class="d-flex">
+            <div class="pb-3">
+              <h5><strong><%= p.user.first_name %> <%= p.user.last_name %></strong></h5>
+              <h6><%= p.title %></h6>
+              <h6><%= p.company %></h6>
+              <h6 class="mt-4">Expertise:</h6>
+              <div class="d-flex flex-wrap">
+                <% p.expertise_list.each do |e| %>
+                  <h6 class="mr-2 text-white px-2 py-1" style="border-radius: 15px; background-color:#58C2F1;"><%= e %></h6>
+                <% end %>
+              </div>
+            </div>
+            <%= image_tag p.user.profile_picture_url, alt: "profile picture", class: 'avatar-large card-img rounded-circle' %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 
@@ -73,8 +82,11 @@
       <div class="col-md-12">
         <div class="card-body" style="width: 100%;">
           <h4>Q&A</h4>
-            <% @lecture.comments.each do |c| %>
-              <p class="font-weight-bold mt-4"><%= c.name_student %> <small><%= c.updated_at.strftime('%b %e, %l:%M %p') %></small></p>
+            <% @lecture.comments.reverse_each do |c| %>
+              <div class="d-flex justify-content-between mt-4">
+                <p class="font-weight-bold"><%= c.name_student %></p>
+                <small class="pl-3 text-muted"><%= c.updated_at.strftime('%b %e, %l:%M %p') %></small>
+              </div>
               <p class="border-bottom"><%= c.content %></p>
             <% end %>
         </div>
@@ -91,8 +103,22 @@
   <%= javascript_pack_tag 'video' %>
 <% end %>
 
-<section class="modal">
+<section class="modal" style="z-index: 1;>
   <div id="remote-media"></div>
   <div id="local-media"></div>
   <button class="close-video btn btn-outline-light">Finish lecture</button>
 </section>
+
+<div class="card fixed-bottom py-3 px-5" id="comment-form" style="width: 100%; position: sticky !important;">
+  <div class="form-wrapper" style="width: 100%; margin: 0 auto;">
+    <%= simple_form_for [@lecture, @comment] do |f| %>
+      <!-- <div class="w-100"> -->
+    <% if current_user.professionals.present? %>
+      <%= f.input :content, placeholder: 'Reply to questions', label: false %>
+    <% else %>
+      <%= f.input :content, placeholder: 'Ask your question', label: false %>
+    <% end %>
+      <!-- </div> -->
+    <% end %>
+  </div>
+</div>
