@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.name_student = current_user.first_name
     @comment.lecture = @lecture
     if @comment.save
       redirect_to lecture_path(@lecture)
