@@ -1,4 +1,4 @@
-  // EVERYTHING BELOW IS FOR VIDEO TEST
+import $ from 'jquery';
 import Rails from 'rails-ujs';
   'use strict';
 //
@@ -45,7 +45,7 @@ Rails.ajax({
     };
 
     // Bind button to leave room
-    document.getElementById('button-leave').onclick = function () {
+    document.querySelector('.close-video').onclick = function () {
       // log('Leaving room...');
       activeRoom.disconnect();
     };
@@ -105,8 +105,8 @@ Rails.ajax({
       activeRoom = room;
 
       // log("Joined as '" + identity + "'");
-      document.getElementById('button-join').style.display = 'none';
-      document.getElementById('button-leave').style.display = 'inline';
+      // document.getElementById('button-join').style.display = 'none';
+      // document.getElementById('button-leave').style.display = 'inline';
 
       // Draw local video, if not already previewing
       var previewContainer = document.getElementById('local-media');
@@ -122,7 +122,9 @@ Rails.ajax({
 
       // When a participant joins, draw their video on screen
       room.on('participantConnected', function(participant) {
-        // log("Joining: '" + participant.identity + "'");
+        console.log('TEST: PARTICIPANT JOINED');
+        console.log("Joining: '" + participant.identity + "'");
+        document.querySelector('div#local-media video').classList.add('video-small');
       });
 
       room.on('trackAdded', function(track, participant) {
@@ -155,9 +157,9 @@ Rails.ajax({
         detachParticipantTracks(room.localParticipant);
         room.participants.forEach(detachParticipantTracks);
         activeRoom = null;
-        document.getElementById('button-join').style.display = 'inline';
-        document.getElementById('button-leave').style.display = 'none';
-        const mentorID = document.getElementsByClassName("chat")[0].id.split("A")[0];
+        // document.getElementById('button-join').style.display = 'inline';
+        // document.getElementById('button-leave').style.display = 'none';
+        // const mentorID = document.getElementsByClassName("chat")[0].id.split("A")[0];
       });
     }
 
@@ -174,3 +176,15 @@ Rails.ajax({
         activeRoom.disconnect();
       }
     }
+
+// TOGGLE
+
+$('#button-join').click(function(e) {
+  $('.modal').addClass('active');
+  e.preventDefault();
+});
+
+$('.close-video').click(function(e) {
+  $('.modal').removeClass('active');
+  e.preventDefault();
+});
