@@ -47,7 +47,7 @@
   </script> -->
 <!-- </div> -->
 <div class="container flex-column align-items-center">
-  <div style="width: 80%;" class="mb-4">
+  <div style="width: 90%;" class="mb-4">
     <%= form_tag professionals_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
@@ -56,37 +56,35 @@
       %>
     <% end %>
   </div>
-
   <% if params[:tag].present? %>
     <h4 class="mb-4 text-white px-2 py-1 rounded bg-info d-inline-block"><%= "##{params[:tag]}" %></h4>
   <% end %>
-
   <!-- Display professionals -->
   <% @professionals.each do |pro| %>
-    <div class="card mb-3" style="width: 80%;">
+    <div class="card mb-5" style="width: 90%; border-radius: 12px; box-shadow: 0 0px 40px 0 rgba(0, 0, 0, 0.1); padding: 50px;">
       <div class="row no-gutters">
-        <div class="col-md-2">
+        <div class="col-md-3">
           <div class="card-body">
-            <img src=<%= pro.user.profile_picture_url %> class="card-img rounded-circle" alt="profile picture">
+            <img src=<%= pro.user.profile_picture_url %> class="avatar-large card-img rounded-circle" alt="profile picture">
           </div>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-9">
           <div class="card-body">
-            <h4 class="card-title"><%= pro.user.first_name %> <%= pro.user.last_name %></h4>
+            <h3 class="card-title" style="color: #7098FF"><%= pro.user.first_name %> <%= pro.user.last_name %></h3>
             <h5 class="card-text"><i class="fas fa-building mr-3"></i><%= pro.company %></h5>
-            <p class="card-text text-muted"><%= pro.title %></p>
+            <p><%= pro.title %></p>
             <div class="d-flex justify-content-between align-items-end">
               <div class="d-flex">
                 <p class="card-text"><i class="fas fa-tag"></i>
                   <% pro.expertise_list.each do |e| %>
-                  <form action="" method="get">
-                    <small class="text-white px-1 mx-1 rounded bg-info"><input style="all: unset; padding: inherit;" type="submit" name="tag" value=<%= e %> /></small>
-                  </form>
+                    <form action="" method="get">
+                      <small class="text-white px-2 mr-1 py-1" style="border-radius: 15px; background-color:#58C2F1;"><%= e %></small>
+                    </form>
                   <% end %>
                 </p>
               </div>
               <%= link_to 'Send a request', new_professional_lecture_path(pro), class: 'btn btn-primary' %>
-<!--               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Send request</button> -->
+              <!--               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Send request</button> -->
             </div>
           </div>
           <!-- Modal -->
@@ -96,39 +94,35 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h4 class="modal-title">Send a request</h4>
-                    <%= simple_form_for [pro, @lecture] do |f| %>
-                      <div>
-                        <%= f.input :name, label: :Topic, required: true %>
-                        <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker"} %>
-                        <%= f.input :end_time, as: :string, required: false, input_html: {class: "datepicker"} %>
-                        <%= f.input :message, as: :text %>
-                        <%= f.association :class_room, collection: current_user.class_rooms %>
-                        <%= f.submit :Request, class: "btn btn-primary" %>
-                      </div>
-                    <% end %>
+                  <%= simple_form_for [pro, @lecture] do |f| %>
+                    <div>
+                      <%= f.input :name, label: :Topic, required: true %>
+                      <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker"} %>
+                      <%= f.input :end_time, as: :string, required: false, input_html: {class: "datepicker"} %>
+                      <%= f.input :message, as: :text %>
+                      <%= f.association :class_room, collection: current_user.class_rooms %>
+                      <%= f.submit :Request, class: "btn btn-primary" %>
+                    </div>
+                  <% end %>
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div>
                   <!-- date picker -->
                   <div class="container">
                     <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-
-<!--                       <%#= simple_form_for [@professional, @lecture], new_professional_lecture_path(pro) do |f| %>
+                      <!--                       <%#= simple_form_for [@professional, @lecture], new_professional_lecture_path(pro) do |f| %>
                         <%#= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
                         <%#= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
                         <%#= f.input :text %>
                         <%#= f.submit :Request, class: "btn btn-primary" %>
                       <%# end %> -->
-
                       <%#= render 'lectures/form', lecture: @lecture %>
-
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
