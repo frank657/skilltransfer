@@ -31,3 +31,12 @@
 .container-short {
   height: 150px;
 }
+
+.nav-link {
+  font-size: 20px;
+}
+
+.nav-link.active {
+  background-image: linear-gradient(45deg, $dark-blue, #2cb5e8 );
+  border-radius: 5px 5px 0 0;
+}
