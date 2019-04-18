@@ -30,24 +30,48 @@
 
 
     <!-- TAB 1 add profile to card -->
-      <div class="card mb-3 p-3" style="width: 100%; border-radius: 12px;">
+      <div class="card mb-3" style="width: 100%; border-radius: 12px; box-shadow: 0 0px 40px 0 rgba(0, 0, 0, 0.1); padding: 50px;">
         <div class="grid-container">
-          <div class="CompanyValue"><%= @professional.company %></div>
-          <div class="CompanyLabel">Company</div>
-          <div class="FullName">
-            <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+          <div class="CompanyValue">
+            <h5 class="mb-4"><%= @professional.company %></h5>
           </div>
-          <div class="JobTitleLabel">Job Title</div>
-          <div class="JobTitleValue"><%= @professional.title %></div>
-          <div class="CityLabel">City</div>
-          <div class="CityValue"><%= @professional.city %></div>
-          <div class="EmailLabel">Email</div>
-          <div class="EmailValue"><%= @user.email %></div>
-          <div class="LinkedinLabel">LinkedIn</div>
-          <div class="LinkedinValue"><%= @professional.linkedin_url %></div>
-          <div class="DescriptionLabel">Description</div>
-          <div class="DescriptionValue"><%= @professional.description %></div>
-          <div class="EditProfileButton"><a class="btn btn-primary" href="/lectures/5">Edit Profile</a></div>
+          <div class="CompanyLabel">
+            <h5><i class="fas fa-building" style="color:#7098FF"></i> Company</h5>
+          </div>
+          <div class="FullName">
+            <h2 class="mb-5" style="color: #7098FF">About me</h2>
+          </div>
+          <div class="JobTitleLabel">
+            <h5 class="mb-4"><i class="fas fa-user-tie" style="color:#7098FF"></i> Job Title</h5>
+          </div>
+          <div class="JobTitleValue">
+            <h5 class="mb-4"><%= @professional.title %></h5>
+          </div>
+          <div class="CityLabel">
+            <h5 class="mb-4"><i class="fas fa-city" style="color:#7098FF"></i> City</h5>
+          </div>
+          <div class="CityValue">
+            <h5 class="mb-4"><%= @professional.city %></h5>
+          </div>
+          <div class="EmailLabel">
+            <h5 class="mb-4"><i class="fas fa-envelope" style="color:#7098FF"></i> Email</h5>
+          </div>
+          <div class="EmailValue">
+            <h5 class="mb-4"><%= @user.email %></h5>
+          </div>
+          <div class="LinkedinLabel">
+            <h5 class="mb-4"><i class="fab fa-linkedin" style="color:#7098FF"></i> LinkedIn</h5>
+          </div>
+          <div class="LinkedinValue">
+            <h5 class="mb-4" style="color:#7098FF"><%= @professional.linkedin_url %></h5>
+          </div>
+          <div class="DescriptionLabel">
+            <h5 class="mb-4"><i class="fas fa-smile" style="color:#7098FF"></i> Bio</h5>
+          </div>
+          <div class="DescriptionValue">
+            <h5 class="mb-4"><%= @professional.description %></h5>
+          </div>
+          <div class="EditProfileButton"><a class="mt-4 btn btn-primary py-1" href="/lectures/5">Edit Profile</a></div>
         </div>
       </div>
     </div>
