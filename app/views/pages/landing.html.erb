@@ -18,7 +18,6 @@
           </li>
         <% end %>
       <% end %>
-
       <div>
         <% if user_signed_in? %>
           <% if current_user.professionals.empty? %>
@@ -41,7 +40,6 @@
             <!-- ======== -->
             <%= link_to "For teachers", teacher_info_path , class: "dropdown-item"%>
             <%= link_to "For professionals", professional_info_path , class: "dropdown-item"%>
-
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
@@ -98,7 +96,6 @@
     <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
   </div>
 </div>
-
 <!-- ============== -->
 <div class="banner-second">
   <div class="commerical-box">
@@ -124,10 +121,9 @@
   </div> -->
 <!-- ========================== -->
 <div class="card-product-page">
-  <%= image_tag"teacher.jpeg", alt: "teacher"%>
+  <%= image_tag"class.png", alt: "teacher"%>
   <div class="card-product-page-infos">
-    <h2>Help your students
-      seek better career options</h2>
+    <h2>Help your students seek better career options</h2>
     <p>Help students to connect with professionals to discover the world of work, such as industry requirements, opportunities, development paths and limitations.</p>
   </div>
 </div>
