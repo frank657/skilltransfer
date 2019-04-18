@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head >
+    <%= favicon_link_tag asset_path('favicon2.png') %>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Skilltransfer</title>
@@ -10,15 +11,22 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application' %> <!-- NEW! -->
     <!-- JS -->
-    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
-  </head>
-  <body>
-    <%= render 'shared/navbar' unless @disable_nav %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
-    <%= javascript_pack_tag 'application' %>
-    <%= yield :after_js %>
-    <%#= javascript_pack_tag 'application' %>
-
-  </body>
-</html>
+    <%#= stylesheet_pack_tag 'application', media: 'all' %> <<!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <title>Document</title>
+        </head>
+        <body>
+        </body>
+      </html>
+    </head>
+    <body>
+      <%= render 'shared/navbar' unless @disable_nav %>
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+      <%= javascript_pack_tag 'application' %>
+      <%= yield :after_js %>
+      <%#= javascript_pack_tag 'application' %>
+    </body>
+  </html>
