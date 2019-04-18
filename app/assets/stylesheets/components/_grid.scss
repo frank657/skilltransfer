@@ -31,3 +31,49 @@
 
 .button { grid-area: button; }
 
+
+ // second try
+
+
+.grid-container-try-2 {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  grid-template-areas: "image teacherInfo scheduledFor" "image teacherInfo scheduledFor" ". lectureName ." ". teacherMessage ." ". studentsInterests ." ". confirmButton .";
+}
+
+.image { grid-area: image; }
+
+.scheduledFor {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: ". . ." "date date date" "time time time";
+  grid-area: scheduledFor;
+}
+
+.date { grid-area: date; }
+
+.time { grid-area: time; }
+
+.teacherInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "teacherName teacherName teacherName" "teacherTitle teacherTitle teacherTitle" "teacherSchool teacherSchool teacherSchool";
+  grid-area: teacherInfo;
+}
+
+.teacherName { grid-area: teacherName; }
+
+.teacherTitle { grid-area: teacherTitle; }
+
+.teacherSchool { grid-area: teacherSchool; }
+
+.lectureName { grid-area: lectureName; }
+
+.teacherMessage { grid-area: teacherMessage; }
+
+.studentsInterests { grid-area: studentsInterests; }
+
+.confirmButton { grid-area: confirmButton; }
