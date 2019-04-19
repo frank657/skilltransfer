@@ -65,10 +65,14 @@
             <h5 class="mb-4" style="color:#7098FF"><%= @professional.linkedin_url %></h5>
           </div>
           <div class="DescriptionLabel">
-            <h5 class="mb-4"><i class="fas fa-smile" style="color:#7098FF"></i> Bio</h5>
+            <h5 class="mb-4"><i class="fas fa-smile" style="color:#7098FF"></i> Expertise</h5>
           </div>
           <div class="DescriptionValue">
-            <h5 class="mb-4"><%= @professional.description %></h5>
+            <h5 class="mb-4">
+                <% @professional.expertise_list.each do |e| %>
+                  <small class="text-white px-2 py-1" style="border-radius: 15px; background-color:#58C2F1;"><%= e %></small>
+                <% end %>
+            </h5>
           </div>
           <div class="EditProfileButton"><a class="mt-4 btn btn-primary py-1" href="/lectures/5">Edit Profile</a></div>
         </div>
