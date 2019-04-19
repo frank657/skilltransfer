@@ -162,7 +162,7 @@ div#controls div#log p {
 }
 
 /* MODAL */
-.modal {
+.vid-mod {
   position: fixed;
   top:0;
   left:0;
@@ -176,7 +176,7 @@ div#controls div#log p {
   transition: opacity 0.5s, visibility 0s 0.5s;
 }
 
-.modal.active {
+.vid-mod.active {
   opacity: 1;
   visibility: visible;
   transition: opacity 0.5s;

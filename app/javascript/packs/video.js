@@ -182,11 +182,11 @@ Rails.ajax({
 // TOGGLE
 
 $('#button-join').click(function(e) {
-  $('.modal').addClass('active');
+  $('.vid-mod').addClass('active');
   e.preventDefault();
 });
 
 $('.close-video').click(function(e) {
-  $('.modal').removeClass('active');
+  $('.vid-mod').removeClass('active');
   e.preventDefault();
 });
