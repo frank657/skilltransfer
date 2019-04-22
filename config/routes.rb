@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'signup_form/professional'
-  get 'signup_form/teacher'
+  get 'signup_form/signup_form'
 
   devise_for :users
 

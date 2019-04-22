@@ -1,7 +1,6 @@
 class SignupFormController < ApplicationController
-  def professional
-  end
-
-  def teacher
+  def signup_form
+    @teacher = Teacher.new
+    @professional = Professional.new
   end
 end

@@ -20,7 +20,7 @@ class ProfessionalsController < ApplicationController
     @professional = Professional.new(professional_params)
     @professional.user = current_user
     if @professional.save
-      redirect_to user_path(current_user)
+      redirect_to p_dashboard_path(current_user)
     else
       render :new
     end

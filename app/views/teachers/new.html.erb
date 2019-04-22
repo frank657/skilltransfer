@@ -1,13 +1,5 @@
 <h1>Teachers#new</h1>
 <p>Find me in app/views/teachers/new.html.erb</p>
 <div class="container">
-  <%= simple_form_for [@user.professional] do |f| %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :profile_picture_url %>
-    <%= f.label :background_picture_url %>
-    <%= f.input :school %>
-    <%= f.input :title %>
-    <%= f.submit "Create profile", class: "btn btn-primary ml-2" %>
-  <% end %>
+  <%= render 'form', teacher: @teacher %>
 </div>
